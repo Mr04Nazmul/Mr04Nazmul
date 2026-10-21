@@ -1,4 +1,4 @@
-import { chromium } from "@playwright/test";
+import { chromium, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { spawn } from "node:child_process";
 import { mkdir, writeFile } from "node:fs/promises";
@@ -79,6 +79,7 @@ try {
         failed.push({ url: r.url(), status: r.status() });
     });
     await page.goto(base, { waitUntil: "networkidle", timeout: 60000 });
+    await expect.poll(() => page.locator("video").evaluate(v => v.readyState), {timeout:20000}).toBeGreaterThanOrEqual(2);
     await page.waitForTimeout(1000);
     assert.equal(await page.locator("h1").count(), 1);
     for (const id of [

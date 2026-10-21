@@ -171,7 +171,7 @@ img {
     linear-gradient(0deg, #101411b3, transparent 60%, #10141130);
 }
 .floating-header {
-  position: absolute;
+  position: fixed;
   top: 24px;
   left: 50%;
   transform: translateX(-50%);
@@ -1249,7 +1249,7 @@ img {
 }
 @media (max-width: 760px) {
   :root {
-    --stack-top: 22px;
+    --stack-top: 92px;
   }
   .container {
     width: calc(100% - 40px);

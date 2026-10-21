@@ -55,10 +55,12 @@ export function VideoSound() {
           poster="/images/video-poster.webp"
           onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}
-          onError={() => setFailed(true)}
+          onLoadedData={() => setFailed(false)}
+          onError={(event) => { if (event.currentTarget.error) setFailed(true); }}
         >
+          <source src="/media/devnazu-compatible.webm" type="video/webm" />
           <source src="/media/devnazu-original.mp4" type="video/mp4" />
-          <source src={videoSource} type="video/mp4" />
+          <source src={videoSource} type="video/mp4" onError={() => setFailed(true)} />
         </video>
       </div>
       <div className={"sound-dock " + (expanded ? "expanded" : "")}>
