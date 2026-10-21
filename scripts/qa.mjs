@@ -91,7 +91,13 @@ try {
       "contact",
     ])
       assert.equal(await page.locator("#" + id).count(), 1);
-    assert.equal(await page.locator(".project-card").count(), 4);
+    assert.equal(await page.locator(".project-card").count(), 3);
+    assert.equal(await page.locator('a[href*="Halal-japan"]').count(), 0);
+    assert.equal(await page.locator('footer').getByRole('link', {name:'Skiper UI', exact:true}).count(), 0);
+    assert.equal(await page.locator('footer').getByRole('link', {name:'React Bits', exact:true}).count(), 0);
+    assert.equal(await page.locator('footer').getByRole('link', {name:'Magic UI', exact:true}).count(), 0);
+    assert.equal(await page.locator('footer').getByRole('link', {name:'21st.dev', exact:true}).count(), 0);
+    assert.equal(await page.locator('.identity-portrait img').getAttribute('src'), '/images/hossain-portrait.jpg');
     assert.equal(
       await page.locator("video source").last().getAttribute("src"),
       "https://japan-halal-checker-najmul.floot.app/_cdn/static/cdda02a5-a496-4e6d-a54a-eaa375b28a39-devnazu-portfolio-background.mp4",
@@ -148,15 +154,15 @@ try {
     await page.waitForTimeout(600);
     assert.match(await page.locator(".carousel-count").innerText(), /02/);
     await page
-      .getByRole("button", { name: "Go to milestone 4", exact: true })
+      .getByRole("button", { name: "Go to milestone 3", exact: true })
       .click();
     await page.waitForTimeout(600);
-    assert.match(await page.locator(".carousel-count").innerText(), /04/);
+    assert.match(await page.locator(".carousel-count").innerText(), /03/);
     await page
       .getByRole("button", { name: "Previous milestone", exact: true })
       .click();
     await page.waitForTimeout(600);
-    assert.match(await page.locator(".carousel-count").innerText(), /03/);
+    assert.match(await page.locator(".carousel-count").innerText(), /02/);
     await page
       .getByRole("button", { name: "Expand video sound controls" })
       .click();

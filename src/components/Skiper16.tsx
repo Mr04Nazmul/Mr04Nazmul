@@ -78,7 +78,7 @@ function StickyCard({
           href={project.url}
           target="_blank"
           rel="noopener noreferrer"
-          className={"project-visual " + (i === 3 ? "token-visual" : "")}
+          className={"project-visual " + (project.title === "NAZU Token" ? "token-visual" : "")}
           style={{ backgroundColor: project.color }}
           aria-label={"Explore " + project.title}
         >
@@ -87,7 +87,7 @@ function StickyCard({
             <i />
             <i />
             <span>
-              {i === 3
+              {project.title === "NAZU Token"
                 ? "ETHEREUM / SEPOLIA"
                 : project.title.toLowerCase().replaceAll(" ", "—")}
             </span>
@@ -96,7 +96,7 @@ function StickyCard({
           <img
             src={project.image}
             alt={
-              i === 3
+              project.title === "NAZU Token"
                 ? "Original NAZU token logo"
                 : `Actual ${project.title} repository interface screenshot`
             }
@@ -105,11 +105,9 @@ function StickyCard({
             loading="lazy"
           />
           <span className="visual-caption">
-            {i === 3
+            {project.title === "NAZU Token"
               ? "Testnet experiment"
-              : i === 0
-                ? "Live project capture · October 2026"
-                : "Repository interface capture · October 2026"}
+              : "Repository interface capture · October 2026"}
           </span>
         </a>
       </motion.article>

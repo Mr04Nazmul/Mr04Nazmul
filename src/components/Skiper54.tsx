@@ -6,14 +6,13 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   ArrowLeft,
   ArrowRight,
-  ScanLine,
   Orbit,
   Hexagon,
   Receipt,
   ArrowUpRight,
 } from "lucide-react";
 import { milestones } from "../data";
-const icons = [ScanLine, Orbit, Hexagon, Receipt];
+const icons = [Orbit, Hexagon, Receipt];
 export function Skiper54() {
   const [ref, api] = useEmblaCarousel({
     loop: true,
@@ -77,7 +76,7 @@ export function Skiper54() {
                 >
                   <div className="milestone-top">
                     <span>{m.tag}</span>
-                    <span>{m.number} / 04</span>
+                    <span>{m.number} / {String(milestones.length).padStart(2, "0")}</span>
                   </div>
                   <div className="milestone-art" aria-hidden="true">
                     <span />
@@ -116,7 +115,7 @@ export function Skiper54() {
       <div className="carousel-controls">
         <div className="carousel-count" aria-live="polite">
           0{current + 1}
-          <span> / 04</span>
+          <span> / {String(milestones.length).padStart(2, "0")}</span>
         </div>
         <div className="carousel-dots">
           {milestones.map((m, i) => (

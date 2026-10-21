@@ -171,12 +171,9 @@ function About() {
               <span className="serif">Builder's instinct.</span>
             </h2>
             <div className="identity">
-              <img
-                src="/images/avatar.png"
-                alt="Hossain Najmul's GitHub avatar"
-                width="48"
-                height="48"
-              />
+              <a className="identity-portrait" href="/images/hossain-portrait.jpg" target="_blank" rel="noopener noreferrer" aria-label="View Hossain Najmul's portrait">
+                <img src="/images/hossain-portrait.jpg" alt="Hossain Najmul's illustrated portrait" width="996" height="1578" loading="lazy" decoding="async" />
+              </a>
               <div>
                 <strong>Hossain Najmul</strong>
                 <span>Student · Independent developer</span>
@@ -190,7 +187,7 @@ function About() {
               that make life a little simpler.
             </p>
             <p className="muted">
-              From understanding a food label to exploring a new technology, I
+              From building everyday tools to exploring a new technology, I
               like starting with a real question—and learning my way to an
               answer.
             </p>
@@ -283,7 +280,7 @@ const skills = [
     description: "Thoughtful interfaces that work across screens.",
     Icon: Code2,
     className: "bento-wide",
-    href: github + "/Halal-japan",
+    href: github,
     visual: (
       <div className="code-art">
         <span>
@@ -339,7 +336,7 @@ const skills = [
     name: "Data & backend",
     description: "Connecting interfaces to authentication and data.",
     Icon: Database,
-    href: github + "/Halal-japan",
+    href: github,
     visual: (
       <div className="data-art">
         {"{"}
@@ -496,39 +493,7 @@ function Footer() {
       </Reveal>
       <div className="footer-base">
         <span>© {new Date().getFullYear()} Hossain Najmul</span>
-        <div>
-          <a
-            href="https://skiper-ui.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Skiper UI
-          </a>
-          <span> / </span>
-          <a
-            href="https://reactbits.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Bits
-          </a>
-          <span> / </span>
-          <a
-            href="https://magicui.design"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Magic UI
-          </a>
-          <span> / </span>
-          <a
-            href="https://21st.dev/community/components/ayushmxxn/tubelight-navbar/default"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            21st.dev
-          </a>
-        </div>
+        <a href="/credits.html">Credits</a>
         <span>THANKS FOR SCROLLING ↗</span>
       </div>
     </footer>

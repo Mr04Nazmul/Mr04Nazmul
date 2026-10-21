@@ -1769,3 +1769,6 @@ img {
 @media (max-width: 360px) {
   .nav-contact { display: none; }
 }
+
+.identity-portrait { display:block; width:76px; height:76px; flex-shrink:0; overflow:hidden; border-radius:50%; border:1px solid #cdfc9460; background:#18231a; }
+.identity .identity-portrait img { width:100%; height:100%; object-fit:cover; object-position:50% 8%; transform:scale(2.3); transform-origin:50% 25%; border:0; border-radius:0; }

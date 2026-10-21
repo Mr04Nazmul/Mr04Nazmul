@@ -4,7 +4,7 @@ These licenses apply to their respective integrations; portfolio-specific terms 
 
 ## Skiper UI
 
-Skiper16 StickyCard_001 and Skiper54 Carousel_006 © @gurvinder-singh02. Free to use and modify in personal and commercial projects with attribution for the free version. Visible Skiper UI footer attribution retained. Sources: https://skiper-ui.com/registry/skiper16.json and https://skiper-ui.com/registry/skiper54.json . Original comments remain in the registry snapshots. No upstream sample illustrations are used.
+Skiper16 StickyCard_001 and Skiper54 Carousel_006 © @gurvinder-singh02. Free to use and modify in personal and commercial projects with attribution for the free version. Skiper UI attribution retained on the linked Credits page. Sources: https://skiper-ui.com/registry/skiper16.json and https://skiper-ui.com/registry/skiper54.json . Original comments remain in the registry snapshots. No upstream sample illustrations are used.
 
 ## Magic UI
 
