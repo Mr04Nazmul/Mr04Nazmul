@@ -133,6 +133,17 @@ html{scroll-behavior:smooth}
 .sk30-credit{text-align:center;font-size:11px;padding:0 20px 35px;color:#59685c}.sk30-credit a{color:inherit;text-decoration:underline}
 @media(max-width:700px){.sk30-head{display:block;padding:0 20px 35px}.sk30-head p{margin-top:22px}.sk30-gallery{height:105vh;min-height:650px;gap:9px;padding:9px}.sk30-column{gap:9px}.sk30-column:nth-child(4){display:none}.sk30-tile{height:33vh;min-height:230px;border-radius:7px}.sk30-tile span{left:10px;bottom:12px;font-size:12px}.sk30-column:nth-child(1){margin-top:-22vh}.sk30-column:nth-child(2){margin-top:-40vh}.sk30-column:nth-child(3){margin-top:-18vh}}
 @media(prefers-reduced-motion:reduce){.sk30-column{will-change:auto}.sk30-tile img{transition:none}}
+</style><style>
+/* Integrate parallax directly into existing project cards, not a separate gallery */
+.sk30-section{display:none!important}
+.projects{perspective:1400px}
+.project{will-change:transform;transform:translate3d(0,0,0);transition:transform .25s ease-out,box-shadow .3s,border-color .3s;isolation:isolate}
+.project:after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(130deg,rgba(194,245,168,.09),transparent 50%);opacity:.6}
+.project:nth-child(even){transform:translate3d(0,calc(var(--card-shift,0px)*-.7),0)}
+.project:nth-child(odd){transform:translate3d(0,var(--card-shift,0px),0)}
+.project:hover{box-shadow:0 25px 65px rgba(0,0,0,.3);border-color:rgba(194,245,168,.7)}
+@media(max-width:700px){.projects{gap:16px}.project:nth-child(even),.project:nth-child(odd){transform:translate3d(0,calc(var(--card-shift,0px)*.45),0)}}
+@media(prefers-reduced-motion:reduce){.project:nth-child(even),.project:nth-child(odd){transform:none!important}}
 </style></head>
 <body>
 <div class="bg-media" aria-hidden="true"><video id="ambientVideo" autoplay muted loop playsinline webkit-playsinline preload="metadata"><source src="https://japan-halal-checker-najmul.floot.app/_cdn/static/cdda02a5-a496-4e6d-a54a-eaa375b28a39-devnazu-portfolio-background.mp4" type="video/mp4"></video></div>
@@ -233,4 +244,6 @@ update();
 })();
 </script><script>
 (function(){var gallery=document.getElementById('sk30Gallery');if(!gallery)return;var cols=[].slice.call(gallery.querySelectorAll('.sk30-column'));var reduce=matchMedia('(prefers-reduced-motion: reduce)');if(reduce.matches)return;var target=0,current=0,active=true;function measure(){var rect=gallery.getBoundingClientRect();var total=innerHeight+rect.height;target=Math.max(0,Math.min(1,(innerHeight-rect.top)/total));active=rect.bottom>0&&rect.top<innerHeight;}function frame(){if(active){current+=(target-current)*.095;cols.forEach(function(col){var speed=parseFloat(col.dataset.sk30Speed);col.style.transform='translate3d(0,'+(current*innerHeight*speed*1.75).toFixed(2)+'px,0)';});}requestAnimationFrame(frame)}addEventListener('scroll',measure,{passive:true});addEventListener('resize',measure,{passive:true});measure();requestAnimationFrame(frame);})();
+</script><script>
+(function(){var cards=[].slice.call(document.querySelectorAll('.projects .project'));if(!cards.length||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var scheduled=false;function update(){scheduled=false;var vh=innerHeight;cards.forEach(function(card){var r=card.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;var center=r.top+r.height/2;var amount=Math.max(-20,Math.min(20,(vh/2-center)*.045));card.style.setProperty('--card-shift',amount.toFixed(1)+'px')})}function request(){if(!scheduled){scheduled=true;requestAnimationFrame(update)}}addEventListener('scroll',request,{passive:true});addEventListener('resize',request,{passive:true});update()})();
 </script></body></html>
