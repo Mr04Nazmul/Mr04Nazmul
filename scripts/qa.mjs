@@ -32,7 +32,7 @@ try {
     ...(process.env.CHROME_PATH
       ? { executablePath: process.env.CHROME_PATH }
       : {}),
-    args: ["--no-sandbox"],
+    args: ["--no-sandbox", "--disable-gpu", "--disable-accelerated-video-decode"],
   });
   const reports = [];
   const layouts = [
