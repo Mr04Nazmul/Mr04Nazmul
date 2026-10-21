@@ -95,6 +95,26 @@ html{scroll-behavior:smooth}
 @keyframes skiperRise{from{opacity:0;transform:translateY(35px);filter:blur(7px)}to{opacity:1;transform:none;filter:blur(0)}}
 @media(max-width:580px){.site-header{top:8px;margin-top:8px}.nav{height:58px}.hero{min-height:680px}.hero:after{bottom:35px}.project:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero h1,.hero-lead,.hero .actions{animation:none}.reveal{opacity:1;transform:none;transition:none}.project,.panel{transition:none}}
+</style><style>
+/* Skiper3 dynamic pill adapted for static GitHub Pages. Attribution required by supplied free license. */
+.skiper3-dock{position:fixed;z-index:80;bottom:max(20px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center}
+.skiper3-pill{height:60px;width:60px;max-width:calc(100vw - 32px);border-radius:999px;display:flex;align-items:center;justify-content:flex-end;overflow:hidden;background:rgba(210,247,204,.91);color:#07120c;border:1px solid rgba(255,255,255,.42);box-shadow:0 12px 45px #0009;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:width .65s cubic-bezier(.22,1.35,.36,1),background .3s;animation:skiper3-enter .65s cubic-bezier(.2,.8,.2,1) both}
+.skiper3-pill[data-open="true"]{width:330px}
+.skiper3-expand{border:0;background:rgba(0,0,0,.1);width:60px;height:60px;flex:0 0 60px;display:grid;place-items:center;color:inherit;font-size:21px;cursor:pointer}
+.skiper3-expand:focus-visible,.skiper3-sound:focus-visible{outline:3px solid #185a35;outline-offset:-5px}
+.skiper3-inner{flex:1;min-width:0;display:flex;align-items:center;justify-content:space-evenly;gap:9px;padding:0 8px 0 18px;opacity:0;transform:translateX(14px);pointer-events:none;transition:opacity .25s,transform .35s}
+.skiper3-pill[data-open="true"] .skiper3-inner{opacity:1;transform:none;pointer-events:auto;transition-delay:.22s}
+.skiper3-track{display:flex;align-items:center;gap:5px;flex:1}
+.skiper3-track span{height:7px;width:7px;border-radius:50%;background:#175c3a;opacity:.45}
+.skiper3-track span:first-child{width:42px;border-radius:9px;opacity:.6}
+.skiper3-sound{background:#113d27;border:0;color:#e4ffdc;border-radius:999px;padding:10px 14px;white-space:nowrap;font-size:12px;font-weight:800;cursor:pointer}
+.skiper3-pill[data-sound="true"] .skiper3-track span{animation:skiper3-pulse 1s ease-in-out infinite alternate}
+.skiper3-pill[data-sound="true"] .skiper3-track span:nth-child(2){animation-delay:.2s}
+.skiper3-pill[data-sound="true"] .skiper3-track span:nth-child(3){animation-delay:.4s}
+@keyframes skiper3-enter{from{opacity:0;transform:translateY(90px) scale(.65)}to{opacity:1;transform:none}}
+@keyframes skiper3-pulse{to{opacity:1;transform:scaleY(1.8)}}
+@media(prefers-reduced-motion:reduce){.skiper3-pill,.skiper3-inner,.skiper3-track span{animation:none;transition:none}}
+@media(max-width:580px){.skiper3-dock{bottom:max(14px,env(safe-area-inset-bottom))}.skiper3-pill{height:56px}.skiper3-expand{width:56px;height:56px;flex-basis:56px}}
 </style></head>
 <body>
 <div class="bg-media" aria-hidden="true"><video id="ambientVideo" autoplay muted loop playsinline webkit-playsinline preload="metadata"><source src="https://japan-halal-checker-najmul.floot.app/_cdn/static/cdda02a5-a496-4e6d-a54a-eaa375b28a39-devnazu-portfolio-background.mp4" type="video/mp4"></video></div>
@@ -147,7 +167,7 @@ html{scroll-behavior:smooth}
   </section>
   <section id="contact" class="container"><div class="contact"><p class="section-kicker">Contact / 03</p><h2>Have an interesting idea?<br><span class="grad">Let's build something.</span></h2><p>I'm always exploring new projects and ways to solve everyday problems. Find my code or get in touch through my public profiles.</p><div class="actions"><a class="btn primary" href="https://github.com/Mr04Nazmul" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a><a class="btn" href="https://x.com/nazuseco" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a></div></div></section>
 </main>
-<footer><div class="container footrow"><span>Inspired by <a href="https://skiper-ui.com/" target="_blank" rel="noopener noreferrer" style="color:#c2f5a8">Skiper UI</a> · © <span id="year">2026</span> Hossain Najmul · Crafted with care in Japan.</span><div class="footlinks"><a href="https://github.com/Mr04Nazmul" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://x.com/nazuseco" target="_blank" rel="noopener noreferrer">X</a><a href="#home">Back to top ↑</a></div></div></footer>
+<footer><div class="container footrow"><span>Inspired by <a href="https://skiper-ui.com/" target="_blank" rel="noopener noreferrer" style="color:#c2f5a8">Skiper UI</a> · © <span id="year">2026</span> Hossain Najmul · Crafted with care in Japan.</span><div class="footlinks"><a href="https://github.com/Mr04Nazmul" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://x.com/nazuseco" target="_blank" rel="noopener noreferrer">X</a><a href="#home">Back to top ↑</a></div></div><small style="display:block;text-align:center;padding:10px 20px 110px;color:#9fb7a9;font-size:11px">Dynamic toggle inspired by Skiper rounded-full UI · Free version attribution</small></footer>
 <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
 <script>
 (function(){
@@ -182,5 +202,15 @@ if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-moti
 var targets=document.querySelectorAll('.section-heading,.section-sub,.project,.panel,.contact');
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in-view');observer.unobserve(entry.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
 targets.forEach(function(el){el.classList.add('reveal');observer.observe(el)});
+})();
+</script><div class="skiper3-dock" aria-label="Skiper3 video sound controller"><div class="skiper3-pill" id="skiper3Pill" data-open="false" data-sound="false"><div class="skiper3-inner" id="skiper3Inner" aria-hidden="true"><div class="skiper3-track" aria-hidden="true"><span></span><span></span><span></span><span></span></div><button class="skiper3-sound" type="button" id="skiper3Sound" tabindex="-1">🔇 Sound off</button></div><button class="skiper3-expand" type="button" id="skiper3Expand" aria-expanded="false" aria-controls="skiper3Inner" aria-label="Expand video sound controls">♫</button></div></div><script>
+(function(){
+var pill=document.getElementById('skiper3Pill'),expand=document.getElementById('skiper3Expand'),sound=document.getElementById('skiper3Sound'),inner=document.getElementById('skiper3Inner'),video=document.getElementById('ambientVideo');
+if(!pill||!expand||!sound||!video)return;
+function update(){var on=!video.muted;pill.dataset.sound=String(on);sound.textContent=on?'🔊 Sound on':'🔇 Sound off';sound.setAttribute('aria-pressed',String(on));}
+expand.addEventListener('click',function(){var open=pill.dataset.open!=='true';pill.dataset.open=String(open);expand.setAttribute('aria-expanded',String(open));expand.setAttribute('aria-label',open?'Collapse video sound controls':'Expand video sound controls');inner.setAttribute('aria-hidden',String(!open));sound.tabIndex=open?0:-1;expand.textContent=open?'✕':'♫';});
+sound.addEventListener('click',function(){video.muted=!video.muted;var p=video.play();if(p&&p.catch)p.catch(function(){video.muted=true;update()});update()});
+var old=document.getElementById('audioToggle');if(old){old.style.display='none';old.setAttribute('aria-hidden','true');old.tabIndex=-1;}
+update();
 })();
 </script></body></html>
