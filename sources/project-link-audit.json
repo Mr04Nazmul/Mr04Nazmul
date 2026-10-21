@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://mr04nazmul.github.io/Halal-japan/",
+    "status": 200,
+    "final": "https://mr04nazmul.github.io/Halal-japan/"
+  },
+  {
+    "url": "https://mr04nazmul.github.io/nazulabs/",
+    "status": 200,
+    "final": "http://nazus.xyz/"
+  },
+  {
+    "url": "https://mr04nazmul.github.io/receipt-ai-japan/",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://github.com/Mr04Nazmul/Nazu-testnet-",
+    "status": 200,
+    "final": "https://github.com/Mr04Nazmul/Nazu-testnet-"
+  },
+  {
+    "url": "https://github.com/Mr04Nazmul/nazulabs",
+    "status": 200,
+    "final": "https://github.com/Mr04Nazmul/nazulabs"
+  }
+]
