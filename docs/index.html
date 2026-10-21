@@ -51,9 +51,26 @@ footer{padding:29px 0;border-top:1px solid #263242;color:#9faebb;font-size:12px}
 @media(max-width:880px){.hero{grid-template-columns:1fr;min-height:0;gap:47px;padding:78px 0}.showcase{width:min(100%,560px)}.projects{grid-template-columns:repeat(2,minmax(0,1fr))}.nav-links{gap:15px}}
 @media(max-width:580px){.container{width:min(100% - 28px,1120px)}.nav{height:66px}.logo{font-size:18px}.nav-links{gap:11px;font-size:12px}.nav-links a:nth-child(2){display:none}.nav-cta{padding:8px 11px}.hero{padding:66px 0}.hero h1{letter-spacing:-2.2px}.hero-lead{font-size:16px}.hero-meta{gap:13px}.projects,.about{grid-template-columns:1fr}.section{padding:50px 0}.project{min-height:230px}.panel{padding:24px}.contact{padding:29px 22px;margin-bottom:65px}.footrow{align-items:flex-start;flex-direction:column}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.project{transition:none}.btn:hover,.project:hover{transform:none}}
+
+/* A softly darkened full-page video background, retaining contrast and mobile readability. */
+.bg-media{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#07111a}
+.bg-media video{width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:saturate(.88) contrast(1.04)}
+.bg-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,9,17,.86) 0%,rgba(5,9,17,.64) 48%,rgba(5,9,17,.38) 100%),linear-gradient(to bottom,rgba(5,9,17,.16),rgba(5,9,17,.77))}
+body:before{display:none}
+main,footer{position:relative;z-index:1}
+.site-header{z-index:30}
+.audio-toggle{position:fixed;z-index:45;right:20px;bottom:max(20px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:9px;border:1px solid rgba(167,244,209,.55);border-radius:999px;background:rgba(7,19,22,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#eafff4;box-shadow:0 9px 33px #0008;padding:11px 17px;font:750 12px/1.2 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer}
+.audio-toggle:hover{background:#154035}
+.audio-toggle:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+.audio-toggle[aria-pressed="true"]{border-color:var(--mint);color:var(--mint)}
+.audio-toggle .audio-icon{font-size:16px;line-height:1}
+@media(max-width:580px){.bg-media:after{background:linear-gradient(180deg,rgba(5,9,17,.65),rgba(5,9,17,.72) 50%,rgba(5,9,17,.86))}.audio-toggle{right:13px;bottom:max(13px,env(safe-area-inset-bottom));padding:10px 13px}}
 </style>
 </head>
 <body>
+<div class="bg-media" aria-hidden="true"><video id="ambientVideo" autoplay muted loop playsinline webkit-playsinline preload="metadata"><source src="https://japan-halal-checker-najmul.floot.app/_cdn/static/cdda02a5-a496-4e6d-a54a-eaa375b28a39-devnazu-portfolio-background.mp4" type="video/mp4"></video></div>
+<button id="audioToggle" class="audio-toggle" type="button" aria-label="Enable background video sound" aria-pressed="false"><span class="audio-icon" aria-hidden="true">🔇</span><span class="audio-label">Turn sound on</span></button>
+
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <nav class="container nav" aria-label="Main navigation">
@@ -103,4 +120,30 @@ footer{padding:29px 0;border-top:1px solid #263242;color:#9faebb;font-size:12px}
 </main>
 <footer><div class="container footrow"><span>© <span id="year">2026</span> Hossain Najmul · Crafted with care in Japan.</span><div class="footlinks"><a href="https://github.com/Mr04Nazmul" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://x.com/nazuseco" target="_blank" rel="noopener noreferrer">X</a><a href="#home">Back to top ↑</a></div></div></footer>
 <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<script>
+(function(){
+  var video=document.getElementById('ambientVideo');
+  var button=document.getElementById('audioToggle');
+  if(!video||!button)return;
+  var icon=button.querySelector('.audio-icon');
+  var label=button.querySelector('.audio-label');
+  video.volume=0.65;
+  function update(){
+    var on=!video.muted;
+    button.setAttribute('aria-pressed',on?'true':'false');
+    button.setAttribute('aria-label',on?'Mute background video':'Enable background video sound');
+    icon.textContent=on?'🔊':'🔇';
+    label.textContent=on?'Sound on':'Turn sound on';
+  }
+  button.addEventListener('click',function(){
+    video.muted=!video.muted;
+    update();
+    if(video.paused){var result=video.play();if(result&&result.catch)result.catch(function(){video.muted=true;update()});}
+  });
+  video.addEventListener('error',function(){button.textContent='Video unavailable';button.disabled=true;});
+  update();
+  var start=video.play();
+  if(start&&start.catch)start.catch(function(){/* Mobile browsers may defer playback until interaction. */});
+})();
+</script>
 </body></html>
