@@ -69,6 +69,32 @@ main,footer{position:relative;z-index:1}
 <style>
 /* Premium MagicPath-inspired portfolio deployment */
 :root{--lime:#c2f5a8}body{background:#060b0d;color:white} .bg-media video{opacity:.9;filter:none}.bg-media:after{background:linear-gradient(90deg,rgba(2,8,7,.72),rgba(2,8,7,.32) 62%,rgba(2,8,7,.17))}.site-header{background:rgba(4,13,11,.72)}.hero{min-height:740px;grid-template-columns:1fr;align-content:center;padding-block:110px 170px}.hero h1{font-size:clamp(65px,12vw,150px);font-weight:950;letter-spacing:-.085em;text-transform:uppercase;line-height:.88;max-width:1050px}.hero h1 .grad{color:var(--lime);background:none;-webkit-text-fill-color:var(--lime)}.hero-lead{font-size:clamp(19px,2.5vw,27px);max-width:750px}.eyebrow{color:var(--lime)}.showcase{display:none}.btn.primary{background:var(--lime);border-color:var(--lime)}.section{padding-block:100px}.section-kicker{color:var(--lime)}.section-heading{font-size:clamp(42px,6vw,75px);font-weight:850;letter-spacing:-.06em}.projects{grid-template-columns:repeat(2,minmax(0,1fr))}.project{min-height:320px;padding:35px;background:rgba(10,22,18,.88);border-radius:26px;backdrop-filter:blur(8px)}.project h3{font-size:clamp(24px,3vw,36px)}.about{gap:25px}.panel{background:rgba(8,20,16,.9);padding:40px}.contact{background:rgba(12,31,24,.91);padding:65px}.audio-toggle{background:var(--lime);color:#07140b;border-color:var(--lime)}.audio-toggle[aria-pressed=true]{color:#07140b}.hero-meta{color:#d1e5da}footer{background:#08110f}.nav-cta{color:var(--lime)!important}@media(max-width:650px){.hero{min-height:690px;padding-block:110px 120px}.hero h1{font-size:clamp(56px,13vw,92px)}.projects,.about{grid-template-columns:1fr}.project{min-height:260px;padding:25px}.contact{padding:30px 24px}.bg-media:after{background:linear-gradient(180deg,rgba(2,8,7,.44),rgba(2,8,7,.62))}}
+</style><style>
+/* Skiper UI-inspired motion system: custom CSS, no paid components copied */
+:root{--accent:#c2f5a8}
+html{scroll-behavior:smooth}
+.site-header{border:1px solid rgba(255,255,255,.17);border-radius:999px;position:sticky;top:14px;width:min(1050px,calc(100% - 26px));margin:14px auto 0;background:rgba(9,17,16,.77);box-shadow:0 12px 60px #0007}
+.nav{height:65px;width:calc(100% - 32px)}
+.nav-cta{background:rgba(194,245,168,.13);border:1px solid rgba(194,245,168,.5)}
+.hero{position:relative;min-height:790px}
+.hero h1{animation:skiperRise 1s cubic-bezier(.2,.8,.2,1) both;text-shadow:0 9px 55px rgba(0,0,0,.32)}
+.hero-lead,.hero .actions{animation:skiperRise 1s .18s both}
+.hero:after{content:'SCROLL TO EXPLORE ↓';position:absolute;bottom:60px;left:0;color:rgba(255,255,255,.68);font-size:11px;letter-spacing:3px;font-weight:800}
+.project{position:relative;overflow:hidden;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .3s,background .3s}
+.project:before{content:'';position:absolute;width:260px;height:260px;right:-130px;top:-150px;border-radius:50%;background:radial-gradient(circle,rgba(194,245,168,.16),transparent 72%);transition:transform .5s}
+.project:hover{transform:translateY(-9px) scale(1.012);border-color:rgba(194,245,168,.7);background:rgba(20,39,30,.93)}
+.project:hover:before{transform:scale(2)}
+.project-icon{background:rgba(194,245,168,.12);border:1px solid rgba(194,245,168,.25)}
+.project-links a{color:#c2f5a8}
+.panel{transition:transform .35s,border-color .35s}.panel:hover{transform:translateY(-5px);border-color:#8fbf9a}
+.chips span{border-radius:999px;background:rgba(194,245,168,.07);border-color:rgba(194,245,168,.27)}
+.contact{position:relative;overflow:hidden}
+.contact:before{content:'';position:absolute;right:-130px;top:-130px;width:370px;height:370px;border:1px solid rgba(194,245,168,.24);border-radius:50%;box-shadow:0 0 0 45px rgba(194,245,168,.025),0 0 0 90px rgba(194,245,168,.018);pointer-events:none}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in-view{opacity:1;transform:none}
+@keyframes skiperRise{from{opacity:0;transform:translateY(35px);filter:blur(7px)}to{opacity:1;transform:none;filter:blur(0)}}
+@media(max-width:580px){.site-header{top:8px;margin-top:8px}.nav{height:58px}.hero{min-height:680px}.hero:after{bottom:35px}.project:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero h1,.hero-lead,.hero .actions{animation:none}.reveal{opacity:1;transform:none;transition:none}.project,.panel{transition:none}}
 </style></head>
 <body>
 <div class="bg-media" aria-hidden="true"><video id="ambientVideo" autoplay muted loop playsinline webkit-playsinline preload="metadata"><source src="https://japan-halal-checker-najmul.floot.app/_cdn/static/cdda02a5-a496-4e6d-a54a-eaa375b28a39-devnazu-portfolio-background.mp4" type="video/mp4"></video></div>
@@ -121,7 +147,7 @@ main,footer{position:relative;z-index:1}
   </section>
   <section id="contact" class="container"><div class="contact"><p class="section-kicker">Contact / 03</p><h2>Have an interesting idea?<br><span class="grad">Let's build something.</span></h2><p>I'm always exploring new projects and ways to solve everyday problems. Find my code or get in touch through my public profiles.</p><div class="actions"><a class="btn primary" href="https://github.com/Mr04Nazmul" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a><a class="btn" href="https://x.com/nazuseco" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a></div></div></section>
 </main>
-<footer><div class="container footrow"><span>© <span id="year">2026</span> Hossain Najmul · Crafted with care in Japan.</span><div class="footlinks"><a href="https://github.com/Mr04Nazmul" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://x.com/nazuseco" target="_blank" rel="noopener noreferrer">X</a><a href="#home">Back to top ↑</a></div></div></footer>
+<footer><div class="container footrow"><span>Inspired by <a href="https://skiper-ui.com/" target="_blank" rel="noopener noreferrer" style="color:#c2f5a8">Skiper UI</a> · © <span id="year">2026</span> Hossain Najmul · Crafted with care in Japan.</span><div class="footlinks"><a href="https://github.com/Mr04Nazmul" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://x.com/nazuseco" target="_blank" rel="noopener noreferrer">X</a><a href="#home">Back to top ↑</a></div></div></footer>
 <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
 <script>
 (function(){
@@ -149,4 +175,12 @@ main,footer{position:relative;z-index:1}
   if(start&&start.catch)start.catch(function(){/* Mobile browsers may defer playback until interaction. */});
 })();
 </script>
-</body></html>
+<script>
+/* Progressive enhancement: Skiper-inspired reveal motion and responsive hover */
+(function(){
+if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var targets=document.querySelectorAll('.section-heading,.section-sub,.project,.panel,.contact');
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in-view');observer.unobserve(entry.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+targets.forEach(function(el){el.classList.add('reveal');observer.observe(el)});
+})();
+</script></body></html>
