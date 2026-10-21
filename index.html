@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070c14">
+<meta name="description" content="Hossain Najmul — developer based in Japan, building useful web, Android, AI and Web3 projects. Explore projects, skills and open-source code.">
+<meta name="author" content="Hossain Najmul">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hossain Najmul — Developer & Maker">
+<meta property="og:description" content="Practical apps. Thoughtful interfaces. Real-world impact.">
+<meta property="og:url" content="https://devnazu.jp/">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/152203744?v=4">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://devnazu.jp/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23080d16'/%3E%3Ctext x='50%25' y='59%25' font-family='Arial,sans-serif' font-size='27' font-weight='bold' fill='%2367f5c2' text-anchor='middle'%3EHN%3C/text%3E%3C/svg%3E">
+<title>Hossain Najmul — Developer & Maker | devnazu.jp</title>
+<style>
+:root{--bg:#080c14;--panel:#111823;--line:#273142;--text:#f2f7fd;--muted:#a2afbf;--mint:#75edc0;--blue:#77a9ff;--glow:rgba(117,237,192,.16)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+body:before{content:"";pointer-events:none;position:absolute;z-index:-1;left:-260px;top:-280px;width:900px;height:850px;background:radial-gradient(ellipse,rgba(43,130,118,.16),transparent 62%)}
+a{color:inherit;text-decoration:none}button,a{ -webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible{outline:3px solid var(--mint);outline-offset:4px}
+.skip{position:absolute;top:-100px;left:15px;z-index:100;padding:10px;background:var(--mint);color:#06130e}.skip:focus{top:15px}
+.container{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+.site-header{position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(255,255,255,.075);background:rgba(8,12,20,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:900;font-size:21px;letter-spacing:-1px;white-space:nowrap}.logo span{color:var(--mint)}.nav-links{display:flex;align-items:center;gap:25px;font-size:13px;font-weight:700;color:#c3cddd}.nav-links a:hover,.footlinks a:hover{color:var(--mint)}
+.nav-cta{border:1px solid #46665a;padding:9px 16px;border-radius:11px;color:var(--mint)!important}
+.hero{display:grid;grid-template-columns:1.25fr .8fr;align-items:center;gap:64px;min-height:650px;padding-block:98px 110px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--mint);font-weight:750;font-size:12px;letter-spacing:1.3px;text-transform:uppercase}
+.pulse{height:8px;width:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 5px rgba(117,237,192,.12)}
+h1,h2,h3,p{margin-top:0}.hero h1{font-size:clamp(44px,5.5vw,79px);letter-spacing:-4px;line-height:1.08;margin:23px 0}.grad{background:linear-gradient(105deg,var(--mint),#a9dfed 70%,#9caeff);color:transparent;background-clip:text;-webkit-background-clip:text}
+.hero-lead{font-size:18px;color:#b7c3d1;max-width:580px;margin-bottom:30px}.hero-lead strong{color:white;font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid #384556;padding:13px 19px;border-radius:13px;font-size:13px;font-weight:800;transition:.2s ease}
+.btn:hover{transform:translateY(-2px);border-color:var(--mint)}.btn.primary{color:#031810;background:var(--mint);border-color:var(--mint)}.btn.primary:hover{background:#a3f8d8}
+.hero-meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:37px;color:#91a2b5;font-size:13px}.hero-meta span{display:flex;align-items:center;gap:7px}
+.showcase{position:relative;align-self:center;padding:18px;border-radius:28px;background:linear-gradient(145deg,rgba(110,249,202,.13),rgba(53,91,171,.05));border:1px solid #2d4b48;box-shadow:0 28px 105px rgba(0,0,0,.24)}
+.showcase:before{content:"";position:absolute;inset:-25px;border-radius:44px;border:1px solid rgba(118,238,196,.06);pointer-events:none}
+.terminal{background:#0b111c;border:1px solid #2d3c49;border-radius:18px;overflow:hidden;box-shadow:0 14px 34px #0006}.dots{display:flex;gap:6px;padding:15px 17px;border-bottom:1px solid #273240}.dots i{width:9px;height:9px;background:#4b5a6a;border-radius:50%}.dots i:first-child{background:#fa8275}.dots i:nth-child(2){background:#f5c45d}.dots i:nth-child(3){background:#6adc9b}
+.code{padding:24px 21px 28px;font-size:13px;line-height:2;color:#9caec3;white-space:pre-wrap;word-break:break-word}.code .keyword{color:#77a9ff}.code .string{color:#85e0a7}.code .violet{color:#e3acff}.code .indent{padding-left:17px}.code .prompt{color:var(--mint)}
+.identity{display:flex;align-items:center;gap:13px;margin-top:14px;border:1px solid #294439;border-radius:15px;background:#10251d;padding:14px}.identity img{width:44px;height:44px;object-fit:cover;border:2px solid #80ecc1;border-radius:13px}.identity strong{display:block;font-size:14px}.identity small{color:#a4c5b7;font-size:11px}
+.section{padding:72px 0}.section-kicker{color:var(--mint);text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:800}.section-heading{font-size:clamp(29px,4vw,44px);line-height:1.2;letter-spacing:-1.7px;margin:12px 0}.section-sub{color:var(--muted);max-width:680px;margin-bottom:31px}
+.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.project{display:flex;flex-direction:column;min-height:270px;padding:23px;border:1px solid var(--line);border-radius:21px;background:linear-gradient(155deg,#15202d 0%,#0f151f 85%);transition:transform .18s,border-color .18s}
+.project:hover{transform:translateY(-4px);border-color:#508b7b}.project-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px}.project-icon{height:46px;width:46px;border-radius:14px;display:grid;place-items:center;font-size:23px;background:#23394b}.tag{border:1px solid #345048;border-radius:99px;padding:4px 9px;font-size:10px;font-weight:700;color:#98eecf}
+.project h3{font-size:19px;margin-bottom:8px;letter-spacing:-.5px}.project p{font-size:13px;color:#9faebe;margin-bottom:20px;flex:1}
+.stack{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}.stack span{font-size:10px;font-weight:750;color:#b0c6d5;border:1px solid #344050;padding:3px 8px;border-radius:6px}.project-links{display:flex;flex-wrap:wrap;gap:16px;color:var(--mint);font-size:12px;font-weight:800}.project-links a:hover{text-decoration:underline}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:24px}.panel{background:#111923;border:1px solid #293441;border-radius:23px;padding:30px}.panel h3{font-size:22px;margin-bottom:14px}.panel p{font-size:14px;color:#a9b8c8;margin-bottom:0}.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}.chips span{padding:8px 11px;color:#d4e5ee;background:#1a2936;border:1px solid #354353;border-radius:10px;font-size:12px;font-weight:700}
+.contact{margin:46px 0 85px;padding:49px;border-radius:28px;border:1px solid #315749;background:radial-gradient(circle at 90% 0%,rgba(79,206,159,.18),transparent 45%),#11231f}.contact p{color:#b6cfc4;max-width:550px}.contact h2{font-size:clamp(28px,4vw,41px);letter-spacing:-1.2px;line-height:1.2;margin:14px 0}
+footer{padding:29px 0;border-top:1px solid #263242;color:#9faebb;font-size:12px}.footrow{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px}.footlinks{display:flex;gap:20px}
+@media(max-width:880px){.hero{grid-template-columns:1fr;min-height:0;gap:47px;padding:78px 0}.showcase{width:min(100%,560px)}.projects{grid-template-columns:repeat(2,minmax(0,1fr))}.nav-links{gap:15px}}
+@media(max-width:580px){.container{width:min(100% - 28px,1120px)}.nav{height:66px}.logo{font-size:18px}.nav-links{gap:11px;font-size:12px}.nav-links a:nth-child(2){display:none}.nav-cta{padding:8px 11px}.hero{padding:66px 0}.hero h1{letter-spacing:-2.2px}.hero-lead{font-size:16px}.hero-meta{gap:13px}.projects,.about{grid-template-columns:1fr}.section{padding:50px 0}.project{min-height:230px}.panel{padding:24px}.contact{padding:29px 22px;margin-bottom:65px}.footrow{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.project{transition:none}.btn:hover,.project:hover{transform:none}}
+
+/* A softly darkened full-page video background, retaining contrast and mobile readability. */
+.bg-media{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#07111a}
+.bg-media video{width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:saturate(.88) contrast(1.04)}
+.bg-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,9,17,.86) 0%,rgba(5,9,17,.64) 48%,rgba(5,9,17,.38) 100%),linear-gradient(to bottom,rgba(5,9,17,.16),rgba(5,9,17,.77))}
+body:before{display:none}
+main,footer{position:relative;z-index:1}
+.site-header{z-index:30}
+.audio-toggle{position:fixed;z-index:45;right:20px;bottom:max(20px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:9px;border:1px solid rgba(167,244,209,.55);border-radius:999px;background:rgba(7,19,22,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#eafff4;box-shadow:0 9px 33px #0008;padding:11px 17px;font:750 12px/1.2 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer}
+.audio-toggle:hover{background:#154035}
+.audio-toggle:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+.audio-toggle[aria-pressed="true"]{border-color:var(--mint);color:var(--mint)}
+.audio-toggle .audio-icon{font-size:16px;line-height:1}
+@media(max-width:580px){.bg-media:after{background:linear-gradient(180deg,rgba(5,9,17,.65),rgba(5,9,17,.72) 50%,rgba(5,9,17,.86))}.audio-toggle{right:13px;bottom:max(13px,env(safe-area-inset-bottom));padding:10px 13px}}
+</style>
+</head>
+<body>
+<div class="bg-media" aria-hidden="true"><video id="ambientVideo" autoplay muted loop playsinline webkit-playsinline preload="metadata"><source src="https://japan-halal-checker-najmul.floot.app/_cdn/static/cdda02a5-a496-4e6d-a54a-eaa375b28a39-devnazu-portfolio-background.mp4" type="video/mp4"></video></div>
+<button id="audioToggle" class="audio-toggle" type="button" aria-label="Enable background video sound" aria-pressed="false"><span class="audio-icon" aria-hidden="true">🔇</span><span class="audio-label">Turn sound on</span></button>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="container nav" aria-label="Main navigation">
+    <a class="logo" href="#home" aria-label="Hossain Najmul home">dev<span>nazu</span><span style="color:#a7b6c5">.jp</span></a>
+    <div class="nav-links">
+      <a href="#projects">Projects</a><a href="#about">About</a><a href="#skills">Skills</a><a class="nav-cta" href="#contact">Let's connect ↗</a>
+    </div>
+  </nav>
+</header>
+<main id="main">
+  <section class="container hero" id="home">
+    <div>
+      <span class="eyebrow"><span class="pulse" aria-hidden="true"></span> Developer · Creator · Based in Japan</span>
+      <h1>Hey, I'm<br><span class="grad">Hossain Najmul.</span></h1>
+      <p class="hero-lead">I build <strong>useful digital products</strong> — from Android utilities and AI-powered tools to modern websites and Web3 experiments.</p>
+      <div class="actions"><a class="btn primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a><a class="btn" href="https://github.com/Mr04Nazmul" target="_blank" rel="noopener noreferrer">View GitHub <span aria-hidden="true">↗</span></a></div>
+      <div class="hero-meta"><span>✧ Web & Android</span><span>✧ AI & Automation</span><span>✧ Open-source projects</span></div>
+    </div>
+    <div class="showcase" aria-label="Code-themed developer profile illustration">
+      <div class="terminal">
+        <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="code"><span class="keyword">const</span> developer = {<br><span class="indent">name: <span class="string">"Hossain Najmul"</span>,</span><br><span class="indent">based: <span class="string">"Japan 🇯🇵"</span>,</span><br><span class="indent">focus: [</span><br><span class="indent">  <span class="string">"Web"</span>, <span class="string">"Android"</span>, <span class="string">"AI"</span></span><br><span class="indent">],</span><br><span class="indent">mindset: <span class="violet">"Build & improve"</span></span><br>};<br><br><span class="prompt">➜ Let's make something useful_</span></div>
+      </div>
+      <div class="identity"><img src="https://avatars.githubusercontent.com/u/152203744?v=4" alt="GitHub profile avatar of Hossain Najmul" width="44" height="44" loading="lazy"><div><strong>@Mr04Nazmul</strong><small>Projects, experiments &amp; source code</small></div></div>
+    </div>
+  </section>
+  <section id="projects" class="section container">
+    <p class="section-kicker">Selected work / 01</p><h2 class="section-heading">Things I'm building<span class="grad">.</span></h2>
+    <p class="section-sub">A selection of public projects. Some are active experiments or works in progress — each one teaches me something new.</p>
+    <div class="projects">
+      <article class="project"><div class="project-top"><span class="project-icon" aria-hidden="true">🌙</span><span class="tag">WEB TOOL</span></div><h3>Japan Halal Checker</h3><p>Barcode-based product lookup and Japanese ingredient guidance for everyday shopping in Japan.</p><div class="stack"><span>Web</span><span>Barcode</span><span>Food data</span></div><div class="project-links"><a href="https://mr04nazmul.github.io/Halal-japan/" target="_blank" rel="noopener noreferrer">Open website ↗</a><a href="https://github.com/Mr04Nazmul/Halal-japan" target="_blank" rel="noopener noreferrer">Source ↗</a></div></article>
+      <article class="project"><div class="project-top"><span class="project-icon" aria-hidden="true">🌐</span><span class="tag">WEB3</span></div><h3>NAZORIX</h3><p>An experimental network participation platform exploring points, node sessions and the Web3 ecosystem.</p><div class="stack"><span>Web</span><span>Web3</span><span>Node sessions</span></div><div class="project-links"><a href="https://github.com/Mr04Nazmul/nazulabs" target="_blank" rel="noopener noreferrer">Explore code ↗</a></div></article>
+      <article class="project"><div class="project-top"><span class="project-icon" aria-hidden="true">🪙</span><span class="tag">TESTNET</span></div><h3>NAZU Token</h3><p>A learning-focused ERC-20 project on Ethereum Sepolia, with testnet supply of 21 million NAZU tokens.</p><div class="stack"><span>Ethereum</span><span>Sepolia</span><span>ERC-20</span></div><div class="project-links"><a href="https://github.com/Mr04Nazmul/Nazu-testnet-" target="_blank" rel="noopener noreferrer">Explore code ↗</a></div></article>
+      <article class="project"><div class="project-top"><span class="project-icon" aria-hidden="true">💳</span><span class="tag">MOBILE</span></div><h3>Money Wallet</h3><p>An Android wallet development project focused on exploring practical finance interfaces and app workflows.</p><div class="stack"><span>Android</span><span>Mobile</span></div><div class="project-links"><a href="https://github.com/Mr04Nazmul/Money-" target="_blank" rel="noopener noreferrer">Explore code ↗</a></div></article>
+      <article class="project"><div class="project-top"><span class="project-icon" aria-hidden="true">🧾</span><span class="tag">EXPERIMENT</span></div><h3>Receipt AI Japan</h3><p>A project exploring receipt processing and smarter everyday expense workflows in Japan.</p><div class="stack"><span>AI</span><span>Japan</span><span>Productivity</span></div><div class="project-links"><a href="https://github.com/Mr04Nazmul/receipt-ai-japan" target="_blank" rel="noopener noreferrer">Explore code ↗</a></div></article>
+      <article class="project"><div class="project-top"><span class="project-icon" aria-hidden="true">🚀</span><span class="tag">MORE</span></div><h3>More on GitHub</h3><p>More ideas, prototypes and experiments across useful digital products and developer tooling.</p><div class="stack"><span>Open source</span><span>Learning</span></div><div class="project-links"><a href="https://github.com/Mr04Nazmul?tab=repositories" target="_blank" rel="noopener noreferrer">All repositories ↗</a></div></article>
+    </div>
+  </section>
+  <section id="about" class="section container">
+    <p class="section-kicker">About / 02</p><h2 class="section-heading">Curious by nature. <span class="grad">Builder by choice.</span></h2>
+    <div class="about">
+      <div class="panel"><h3>A little about me</h3><p>I'm a developer and student based in Japan. I enjoy taking real-life frustrations and turning them into useful web and mobile projects — always learning, experimenting and improving with every release.</p></div>
+      <div class="panel" id="skills"><h3>What I work with</h3><p>Building websites, exploring Android apps and prototyping modern experiences with databases, cloud tools and blockchain technologies.</p><div class="chips"><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Supabase</span><span>GitHub</span><span>Android</span><span>Ethereum</span><span>AI tools</span></div></div>
+    </div>
+  </section>
+  <section id="contact" class="container"><div class="contact"><p class="section-kicker">Contact / 03</p><h2>Have an interesting idea?<br><span class="grad">Let's build something.</span></h2><p>I'm always exploring new projects and ways to solve everyday problems. Find my code or get in touch through my public profiles.</p><div class="actions"><a class="btn primary" href="https://github.com/Mr04Nazmul" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a><a class="btn" href="https://x.com/nazuseco" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a></div></div></section>
+</main>
+<footer><div class="container footrow"><span>© <span id="year">2026</span> Hossain Najmul · Crafted with care in Japan.</span><div class="footlinks"><a href="https://github.com/Mr04Nazmul" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://x.com/nazuseco" target="_blank" rel="noopener noreferrer">X</a><a href="#home">Back to top ↑</a></div></div></footer>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<script>
+(function(){
+  var video=document.getElementById('ambientVideo');
+  var button=document.getElementById('audioToggle');
+  if(!video||!button)return;
+  var icon=button.querySelector('.audio-icon');
+  var label=button.querySelector('.audio-label');
+  video.volume=0.65;
+  function update(){
+    var on=!video.muted;
+    button.setAttribute('aria-pressed',on?'true':'false');
+    button.setAttribute('aria-label',on?'Mute background video':'Enable background video sound');
+    icon.textContent=on?'🔊':'🔇';
+    label.textContent=on?'Sound on':'Turn sound on';
+  }
+  button.addEventListener('click',function(){
+    video.muted=!video.muted;
+    update();
+    if(video.paused){var result=video.play();if(result&&result.catch)result.catch(function(){video.muted=true;update()});}
+  });
+  video.addEventListener('error',function(){button.textContent='Video unavailable';button.disabled=true;});
+  update();
+  var start=video.play();
+  if(start&&start.catch)start.catch(function(){/* Mobile browsers may defer playback until interaction. */});
+})();
+</script>
+</body></html>
