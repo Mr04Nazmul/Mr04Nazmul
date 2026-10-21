@@ -107,6 +107,7 @@ try {
         error: v.error?.message,
         paused: v.paused,
       }));
+    console.log(name, "initial media", JSON.stringify(video));
     assert.equal(video.muted, true);
     assert.equal(video.inline, true);
     await page.screenshot({ path: `test-results/${name}-hero.png` });
@@ -158,6 +159,7 @@ try {
     await page
       .getByRole("button", { name: "Expand video sound controls" })
       .click();
+    console.log(name, "media at controls", await page.locator("video").evaluate(v => ({src:v.currentSrc,error:v.error?.message,code:v.error?.code,ready:v.readyState,network:v.networkState,canPlay:v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"')})), {errors,failed});
     assert.equal(
       await page
         .getByRole("button", { name: "Enable background video sound" })
