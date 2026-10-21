@@ -1,0 +1,106 @@
+{
+  "testedAt": "2026-10-21T10:25:58.201Z",
+  "base": "http://127.0.0.1:4173",
+  "reports": [
+    {
+      "layout": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "video": {
+        "muted": true,
+        "loop": true,
+        "inline": true,
+        "width": 510,
+        "height": 910,
+        "paused": false
+      },
+      "errors": [],
+      "failed": [],
+      "overflows": [],
+      "brokenImages": [],
+      "accessibilityViolations": []
+    },
+    {
+      "layout": "iphone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "video": {
+        "muted": true,
+        "loop": true,
+        "inline": true,
+        "width": 510,
+        "height": 910,
+        "paused": false
+      },
+      "errors": [],
+      "failed": [],
+      "overflows": [],
+      "brokenImages": [],
+      "accessibilityViolations": []
+    },
+    {
+      "layout": "android",
+      "viewport": {
+        "width": 412,
+        "height": 915
+      },
+      "video": {
+        "muted": true,
+        "loop": true,
+        "inline": true,
+        "width": 510,
+        "height": 910,
+        "paused": false
+      },
+      "errors": [],
+      "failed": [],
+      "overflows": [],
+      "brokenImages": [],
+      "accessibilityViolations": []
+    },
+    {
+      "layout": "small-mobile",
+      "viewport": {
+        "width": 320,
+        "height": 700
+      },
+      "video": {
+        "muted": true,
+        "loop": true,
+        "inline": true,
+        "width": 510,
+        "height": 910,
+        "paused": false
+      },
+      "errors": [],
+      "failed": [],
+      "overflows": [],
+      "brokenImages": [],
+      "accessibilityViolations": []
+    },
+    {
+      "layout": "reduced-motion",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "video": {
+        "muted": true,
+        "loop": true,
+        "inline": true,
+        "width": 510,
+        "height": 910,
+        "paused": true
+      },
+      "errors": [],
+      "failed": [],
+      "overflows": [],
+      "brokenImages": [],
+      "accessibilityViolations": []
+    }
+  ]
+}
