@@ -1765,3 +1765,7 @@ img {
     transform: none;
   }
 }
+
+@media (max-width: 360px) {
+  .nav-contact { display: none; }
+}
