@@ -1,0 +1,23 @@
+{
+  "name": "devnazu-skiper",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^6.3.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "framer-motion": "^12.6.0",
+    "lucide-react": "^0.468.0",
+    "lenis": "^1.2.3",
+    "embla-carousel-react": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0"
+  },
+  "devDependencies": {}
+}
