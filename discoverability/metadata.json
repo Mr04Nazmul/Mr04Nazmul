@@ -1,0 +1,74 @@
+{
+  "bn": {
+    "title": "Nihongo Path — বাংলায় জাপানি ভাষা শেখার অ্যাপ",
+    "headline": "বাংলায় জাপানি শিখুন, নিজের গতিতে।",
+    "desc": "Nihongo Path দিয়ে JLPT N5–N1 স্তরের শব্দভাণ্ডার, ব্যাকরণ ও কানজি পড়ুন। বাংলা অর্থ, উচ্চারণ, কানজি অ্যানিমেশন ও লেখার অনুশীলন।",
+    "intro": "Nihongo Path বাংলা ভাষাভাষীদের জন্য একটি Android Japanese learning app। Google Play-তে অ্যাপটির নাম Nihongo Path Books।",
+    "features": [
+      "N5–N1 স্তরভিত্তিক শব্দভাণ্ডার, ব্যাকরণ ও কানজি",
+      "বাংলা অর্থ ও ব্যাকরণের ব্যাখ্যা",
+      "জাপানি উচ্চারণ শুনে অনুশীলন",
+      "কানজি লেখার ক্রম অ্যানিমেশনে দেখুন",
+      "রাইটিং বোর্ডে কানজি অনুশীলন ও প্রিয় শব্দ সংরক্ষণ"
+    ],
+    "access": "বিনামূল্যে কিছু অংশ দেখা যায়। অতিরিক্ত পড়ার সুযোগ অ্যাপের rewarded-ad credit ও নির্দিষ্ট সময়ের access ব্যবস্থার মাধ্যমে পাওয়া যায়। বিজ্ঞাপন আপনার ডিভাইস, দেশ ও নেটওয়ার্ক অনুযায়ী পাওয়া যেতে পারে। সম্পূর্ণ পড়ার জন্য অ্যাকাউন্ট ও ইন্টারনেট লাগতে পারে।",
+    "labels": [
+      "ব্যাকরণ ও বাংলা ব্যাখ্যা",
+      "শব্দভাণ্ডার ও উচ্চারণ",
+      "কানজি অ্যানিমেশন ও লেখার অনুশীলন"
+    ],
+    "section": "অ্যাপের আসল স্ক্রিনশট",
+    "disclaimer": "এটি স্বাধীন শিক্ষামূলক অ্যাপ; JLPT আয়োজকদের সঙ্গে যুক্ত বা তাঁদের অনুমোদিত নয়। পরীক্ষায় পাশের নিশ্চয়তা দেওয়া হয় না।",
+    "support": "সহায়তা ও গোপনীয়তা",
+    "download": "Android-এ ডাউনলোড করুন",
+    "channel": "যে স্টোর থেকে ইনস্টল করেছেন, সেখান থেকেই আপডেট নিন। স্টোরভেদে স্বাক্ষর আলাদা হতে পারে; এক স্টোরের অ্যাপ অন্য স্টোরের বিল্ড দিয়ে আপডেট নাও হতে পারে।"
+  },
+  "en": {
+    "title": "Nihongo Path — Learn Japanese in Bangla | Android",
+    "headline": "Your Japanese study path, with Bangla support.",
+    "desc": "Learn Japanese in Bangla with Nihongo Path for Android. Explore JLPT N5–N1 vocabulary, grammar, kanji stroke animation, pronunciation and writing practice.",
+    "intro": "Nihongo Path is a Japanese learning app for Bengali speakers. On Google Play, it is listed as Nihongo Path Books.",
+    "features": [
+      "Vocabulary, grammar and kanji organised from N5 to N1",
+      "Bengali meanings and grammar explanations",
+      "Japanese pronunciation playback",
+      "Animated kanji stroke order",
+      "Writing-board practice and favourite words for review"
+    ],
+    "access": "Free previews are available. Additional study access uses rewarded-ad credits and time-limited access. Ad availability varies by device, region and network. An account and internet connection may be needed for full study access.",
+    "labels": [
+      "Grammar with Bengali explanations",
+      "Vocabulary and pronunciation",
+      "Kanji animation and writing practice"
+    ],
+    "section": "Actual app screenshots",
+    "disclaimer": "An independent learning app, not affiliated with or endorsed by the JLPT organisers. No exam result or passing outcome is guaranteed.",
+    "support": "Support and privacy",
+    "download": "Download for Android",
+    "channel": "Update through the store you installed from. Store builds may use different signing certificates and may not update one another."
+  },
+  "ja": {
+    "title": "Nihongo Path — ベンガル語で学ぶ日本語アプリ",
+    "headline": "ベンガル語で、日本語学習を一歩ずつ。",
+    "desc": "Nihongo Pathはベンガル語話者向けのAndroid日本語学習アプリ。N5〜N1の語彙・文法・漢字、発音再生、筆順アニメーションと書き取り練習。",
+    "intro": "Nihongo Pathはベンガル語話者向けの日本語学習アプリです。Google Playでは「Nihongo Path Books」として公開されています。日本語の紹介文は、アプリ全体の日本語UI対応を意味しません。",
+    "features": [
+      "N5〜N1別の語彙・文法・漢字学習",
+      "ベンガル語の意味と文法解説",
+      "日本語の発音再生",
+      "漢字の筆順アニメーション",
+      "書き取りボードとお気に入り保存"
+    ],
+    "access": "無料プレビューがあります。追加の学習アクセスには、リワード広告クレジットと有効期限付きアクセスを利用します。広告の配信状況は端末・地域・通信環境により異なります。学習内容の利用にアカウントとインターネット接続が必要な場合があります。",
+    "labels": [
+      "ベンガル語による文法解説",
+      "語彙と発音",
+      "漢字の筆順と書き取り"
+    ],
+    "section": "実際のアプリ画面",
+    "disclaimer": "JLPT主催者とは関係のない独立した学習アプリです。試験結果や合格を保証するものではありません。",
+    "support": "お問い合わせ・プライバシー",
+    "download": "Android版をダウンロード",
+    "channel": "インストール元のストアから更新してください。ストアごとに署名が異なる場合、別のストアのビルドで更新できないことがあります。"
+  }
+}
