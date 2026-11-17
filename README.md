@@ -1,13 +1,17 @@
 <div align="center">
 
-# ⚡ NAZMUL
+# Hossain Najmul · DevNazu
 ### Full-Stack Projects · Android & Web · Web3
 
 [![GitHub](https://img.shields.io/badge/GitHub-Mr04Nazmul-181717?style=for-the-badge&logo=github)](https://github.com/Mr04Nazmul)
 [![X](https://img.shields.io/badge/X-%40nazuseco-000000?style=for-the-badge&logo=x)](https://x.com/nazuseco)
 [![Japan](https://img.shields.io/badge/Based_in-Japan-2563eb?style=for-the-badge)](https://github.com/Mr04Nazmul)
 
-**Building practical apps, useful tools and blockchain experiments.**
+**Software Developer & Creator of DevNazu**
+
+[Official website](https://devnazu.jp/) · [About Hossain Najmul](https://devnazu.jp/about/)
+
+Building Android apps, including Nihongo Path Books and Sakura Mock Test, alongside web tools and development experiments.
 
 </div>
 

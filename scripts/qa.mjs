@@ -97,7 +97,7 @@ try {
     assert.equal(await page.locator('footer').getByRole('link', {name:'React Bits', exact:true}).count(), 0);
     assert.equal(await page.locator('footer').getByRole('link', {name:'Magic UI', exact:true}).count(), 0);
     assert.equal(await page.locator('footer').getByRole('link', {name:'21st.dev', exact:true}).count(), 0);
-    assert.equal(await page.locator('.identity-portrait img').getAttribute('src'), '/images/hossain-portrait.jpg');
+    assert.equal(await page.locator('.identity-portrait img').getAttribute('src'), '/images/hossain-najmul.webp');
     assert.equal(
       await page.locator("video source").last().getAttribute("src"),
       "https://japan-halal-checker-najmul.floot.app/_cdn/static/cdda02a5-a496-4e6d-a54a-eaa375b28a39-devnazu-portfolio-background.mp4",
@@ -221,6 +221,20 @@ try {
     assert.deepEqual(errors, [], `Console errors ${name}`);
     assert.deepEqual(failed, [], `Failed requests ${name}`);
     assert.deepEqual(violations, [], `Accessibility violations ${name}`);
+    await context.close();
+  }
+  for (const width of [320, 390, 1440]) {
+    const context = await browser.newContext({ viewport: { width, height: 900 } });
+    const page = await context.newPage();
+    await page.goto(base + '/about/', {waitUntil:'networkidle'});
+    assert.equal(await page.locator('h1').innerText(), 'Hossain Najmul');
+    assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://devnazu.jp/about/');
+    const schema = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
+    assert.equal(schema['@graph'].find(x => x['@type'] === 'ProfilePage').mainEntity['@id'], 'https://devnazu.jp/#person');
+    await page.locator('.portrait').evaluate(img => img.decode());
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    const axe = await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
+    assert.deepEqual(axe.violations.map(x=>x.id), []);
     await context.close();
   }
   await writeFile(

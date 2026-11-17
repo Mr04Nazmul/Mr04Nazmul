@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://devnazu.jp/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url><loc>https://devnazu.jp/</loc><image:image><image:loc>https://devnazu.jp/images/hossain-najmul.webp</image:loc></image:image></url>
+<url><loc>https://devnazu.jp/about/</loc><image:image><image:loc>https://devnazu.jp/images/hossain-najmul.webp</image:loc></image:image></url>
 <url><loc>https://devnazu.jp/nihongo-path/</loc></url>
 <url><loc>https://devnazu.jp/nihongo-path/en/</loc></url>
 <url><loc>https://devnazu.jp/nihongo-path/ja/</loc></url>

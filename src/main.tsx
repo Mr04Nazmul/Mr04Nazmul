@@ -134,13 +134,13 @@ function Hero() {
           </div>
         </Reveal>
         <Reveal className="hero-note" delay={0.2}>
-          <span className="note-cross">✳</span>
+          <a href="/about/" aria-label="About Hossain Najmul"><img src="/images/hossain-najmul.webp" alt="Hossain Najmul – DevNazu Developer" width="80" height="101" style={{borderRadius:12,objectFit:"cover"}} /></a>
           <p>
             Web, Android, AI & a little Web3.
             <br />
             Learning by making things that matter.
           </p>
-          <a href="#about">
+          <a href="/about/">
             A little about me <ArrowDown size={14} />
           </a>
         </Reveal>
@@ -171,12 +171,12 @@ function About() {
               <span className="serif">Builder's instinct.</span>
             </h2>
             <div className="identity">
-              <a className="identity-portrait" href="/images/hossain-portrait.jpg" target="_blank" rel="noopener noreferrer" aria-label="View Hossain Najmul's portrait">
-                <img src="/images/hossain-portrait.jpg" alt="Hossain Najmul's illustrated portrait" width="996" height="1578" loading="lazy" decoding="async" />
+              <a className="identity-portrait" href="/images/hossain-najmul.webp" target="_blank" rel="noopener noreferrer" aria-label="View Hossain Najmul's portrait">
+                <img src="/images/hossain-najmul.webp" alt="Hossain Najmul – DevNazu Developer" width="1032" height="1308" loading="lazy" decoding="async" />
               </a>
               <div>
                 <strong>Hossain Najmul</strong>
-                <span>Student · Independent developer</span>
+                <span>Software Developer & Creator of DevNazu</span>
               </div>
             </div>
           </Reveal>
@@ -186,6 +186,7 @@ function About() {
               everyday frustrations into websites, mobile experiments and tools
               that make life a little simpler.
             </p>
+            <p><a className="text-link" href="/about/">Read my developer profile <ArrowUpRight size={16} /></a></p>
             <p className="muted">
               From building everyday tools to exploring a new technology, I
               like starting with a real question—and learning my way to an
