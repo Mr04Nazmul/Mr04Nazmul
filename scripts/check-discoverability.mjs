@@ -10,7 +10,7 @@ try{
  browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
  await mkdir('test-results',{recursive:true});const reports=[];
  for(const width of [320,390,1440])for(const suffix of ['','en/','ja/']){
-  const page=await browser.newPage({viewport:{width,height:900}});
+  const context=await browser.newContext({viewport:{width,height:900}});const page=await context.newPage();
   // Production absolute URLs are intentional; serve their matching built files locally for this preview.
   await page.route('https://devnazu.jp/nihongo-path/**',async route=>{
    const response=await fetch(route.request().url().replace('https://devnazu.jp','http://127.0.0.1:4174'));
@@ -29,7 +29,7 @@ try{
   const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(axe.violations.map(v=>v.id),[]);
   reports.push({width,lang:suffix||'bn',canonical:true,images:true,noOverflow:true,accessibilityViolations:0});
   if(width===390)await page.screenshot({path:'test-results/nihongo-path-'+(suffix.replace('/','')||'bn')+'.png',fullPage:true});
-  await page.close();
+  await context.close();
  }
  await writeFile('test-results/discoverability-qa.json',JSON.stringify(reports,null,2));console.log(JSON.stringify({passed:reports.length,reports}));
 }finally{await browser?.close();server.kill();}
