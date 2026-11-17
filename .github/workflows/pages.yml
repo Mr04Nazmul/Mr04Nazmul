@@ -23,6 +23,10 @@ jobs:
       - name: Verify runner Chrome (H.264 and AAC support)
         run: google-chrome --version
       - run: npm run build
+      - name: Verify multilingual app discovery pages
+        run: node scripts/check-discoverability.mjs
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
       - run: npm test
         env:
           CHROME_PATH: /usr/bin/google-chrome

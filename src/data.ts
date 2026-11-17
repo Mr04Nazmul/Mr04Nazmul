@@ -3,6 +3,19 @@ export const videoSource =
   "https://japan-halal-checker-najmul.floot.app/_cdn/static/cdda02a5-a496-4e6d-a54a-eaa375b28a39-devnazu-portfolio-background.mp4";
 export const projects = [
   {
+    title: "Nihongo Path",
+    category: "JAPANESE IN BANGLA",
+    description: "Japanese vocabulary, grammar and kanji with Bengali support.",
+    detail: "An Android learning app with N5–N1 study sections, pronunciation, kanji animation and writing practice.",
+    tags: ["Android", "Japanese", "Bangla"],
+    url: "/nihongo-path/",
+    source: github + "/nihongo-path-books-android",
+    image: "/nihongo-path/assets/icon.png",
+    color: "#d7e6dc",
+    year: "2026",
+    number: "04",
+  },
+  {
     title: "NAZORIX",
     category: "WEB3 EXPLORATION",
     description: "A playground for participation, points and Web3.",

@@ -91,7 +91,7 @@ try {
       "contact",
     ])
       assert.equal(await page.locator("#" + id).count(), 1);
-    assert.equal(await page.locator(".project-card").count(), 3);
+    assert.equal(await page.locator(".project-card").count(), 4);
     assert.equal(await page.locator('a[href*="Halal-japan"]').count(), 0);
     assert.equal(await page.locator('footer').getByRole('link', {name:'Skiper UI', exact:true}).count(), 0);
     assert.equal(await page.locator('footer').getByRole('link', {name:'React Bits', exact:true}).count(), 0);
