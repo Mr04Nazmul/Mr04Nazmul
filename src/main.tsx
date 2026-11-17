@@ -171,9 +171,6 @@ function About() {
               <span className="serif">Builder's instinct.</span>
             </h2>
             <div className="identity">
-              <a className="identity-portrait" href="/images/hossain-najmul.webp" target="_blank" rel="noopener noreferrer" aria-label="View Hossain Najmul's portrait">
-                <img src="/images/hossain-najmul.webp" alt="Hossain Najmul – DevNazu Developer" width="1032" height="1308" loading="lazy" decoding="async" />
-              </a>
               <div>
                 <strong>Hossain Najmul</strong>
                 <span>Software Developer & Creator of DevNazu</span>

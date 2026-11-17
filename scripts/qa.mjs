@@ -97,7 +97,7 @@ try {
     assert.equal(await page.locator('footer').getByRole('link', {name:'React Bits', exact:true}).count(), 0);
     assert.equal(await page.locator('footer').getByRole('link', {name:'Magic UI', exact:true}).count(), 0);
     assert.equal(await page.locator('footer').getByRole('link', {name:'21st.dev', exact:true}).count(), 0);
-    assert.equal(await page.locator('.identity-portrait img').getAttribute('src'), '/images/hossain-najmul.webp');
+    assert.equal(await page.locator('#about .identity-portrait').count(), 0);
     assert.equal(
       await page.locator("video source").last().getAttribute("src"),
       "https://japan-halal-checker-najmul.floot.app/_cdn/static/cdda02a5-a496-4e6d-a54a-eaa375b28a39-devnazu-portfolio-background.mp4",
