@@ -23,7 +23,7 @@ try{
   const schema=JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());assert.equal(schema['@type'],'MobileApplication');
   assert.equal(await page.locator('a[href="https://play.google.com/store/apps/details?id=online.devnazu.books"]').count(),1);
   assert.equal(await page.locator('a[href="https://nihongo-path.en.uptodown.com/android"]').count(),1);
-  for(const image of await page.locator('img').all())await image.scrollIntoViewIfNeeded();
+  for(const image of await page.locator('img').all()){await image.scrollIntoViewIfNeeded();await image.evaluate(img=>img.decode());}
   assert(await page.locator('img').evaluateAll(imgs=>imgs.every(i=>i.complete&&i.naturalWidth>0)));
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(axe.violations.map(v=>v.id),[]);
