@@ -42,7 +42,7 @@ JA: ベンガル語話者向けの日本語学習アプリ。語彙・文法・�
 
 ## Ready-to-use original posts
 Facebook / Instagram:
-জাপানি পড়তে গিয়ে শব্দ বা ব্যাকরণের অর্থ বুঝতে অসুবিধা হয়? Nihongo Path-এ বাংলা অর্থে শব্দভাণ্ডার, ব্যাকরণ ও কানজি পড়ুন। উচ্চারণ শুনুন, কানজিরলেখার ক্রম দেখুন এবং রাইটিং বোর্ডে অনুশীলন করুন। N5–N1 অনুযায়ী পড়ার বিভাগ রয়েছে। কিছু অংশ বিনামূল্যে দেখা যায়; অতিরিক্ত পড়ার জন্য rewarded-ad credit ও সময়ভিত্তিক access ব্যবহৃত হয়।
+জাপানি পড়তে গিয়ে শব্দ বা ব্যাকরণের অর্থ বুঝতে অসুবিধা হয়? Nihongo Path-এ বাংলা অর্থে শব্দভাণ্ডার, ব্যাকরণ ও কানজি পড়ুন। উচ্চারণ শুনুন, কানজির লেখার ক্রম দেখুন এবং রাইটিং বোর্ডে অনুশীলন করুন। N5–N1 অনুযায়ী পড়ার বিভাগ রয়েছে। কিছু অংশ বিনামূল্যে দেখা যায়; অতিরিক্ত পড়ার জন্য rewarded-ad credit ও সময়ভিত্তিক access ব্যবহৃত হয়।
 Google Play: https://play.google.com/store/apps/details?id=online.devnazu.books
 Uptodown: https://nihongo-path.en.uptodown.com/android
 #NihongoPath #JapaneseBangla #জাপানিভাষা

@@ -12,7 +12,10 @@ try{
  for(const width of [320,390,1440])for(const suffix of ['','en/','ja/']){
   const page=await browser.newPage({viewport:{width,height:900}});
   // Production absolute URLs are intentional; serve their matching built files locally for this preview.
-  await page.route('https://devnazu.jp/nihongo-path/**',r=>r.continue({url:r.request().url().replace('https://devnazu.jp','http://127.0.0.1:4174')}));
+  await page.route('https://devnazu.jp/nihongo-path/**',async route=>{
+   const response=await fetch(route.request().url().replace('https://devnazu.jp','http://127.0.0.1:4174'));
+   await route.fulfill({status:response.status,headers:Object.fromEntries(response.headers),body:Buffer.from(await response.arrayBuffer())});
+  });
   await page.goto('http://127.0.0.1:4174/nihongo-path/'+suffix,{waitUntil:'networkidle'});
   assert.equal(await page.locator('h1').count(),1);
   assert.equal(await page.locator('link[rel="alternate"][hreflang]').count(),4);
