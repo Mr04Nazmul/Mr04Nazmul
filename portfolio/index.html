@@ -239,10 +239,6 @@ h1,h2,h3,.logo{font-family:"Space Grotesk",Inter,sans-serif}
 /* SILENT WATCHER — the cartoon quietly watches the visitor */
 .watch-frame{position:relative;overflow:hidden;transform-style:preserve-3d;will-change:transform}
 .watch-frame img.watch-img{width:100%;display:block;aspect-ratio:1344/1728;object-fit:cover;object-position:top center;background:#fdfaf5}
-.lid{position:absolute;top:36%;width:12.5%;height:4.6%;border-radius:50%;background:radial-gradient(ellipse at 50% 38%,#f4c193 0%,#eda97c 70%,#e59a68 100%);box-shadow:inset 0 -2px 3px rgba(120,62,20,.28);transform:translate(-50%,-50%) scaleY(0);transform-origin:50% 50%;opacity:0;pointer-events:none;z-index:2}
-.lid-l{left:40.8%;top:35.6%}.lid-r{left:59.6%;top:35.1%}
-.lid.closed{transform:translate(-50%,-50%) scaleY(1);opacity:1;transition:transform .07s ease-in,opacity .05s}
-.lid:not(.closed){transition:transform .13s ease-out,opacity .1s}
 
 @media(max-width:860px){
   .hero,.profile-hero{grid-template-columns:1fr;gap:30px;padding-top:42px}
@@ -280,6 +276,10 @@ h1,h2,h3,.logo{font-family:"Space Grotesk",Inter,sans-serif}
   .menu-ready .jst-clock{grid-column:1/-1;justify-self:start;margin:4px 0 0}
   .crumbbar{display:none}
 }
+.avatar-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.avatar-ready .watch-img{visibility:hidden}
+.avatar-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0}
+.avatar-voice-status{font-size:.85rem;color:var(--muted)}
 </style>
 <meta name="google-site-verification" content="dYPA9-Vzf3WXpoT9QX3Wbnq0sILdPTFiTvgjVTaLcdc" />
 <meta name="msvalidate.01" content="FD590CE7FD6D9BFC943B24198DA8E81C" />
@@ -332,7 +332,7 @@ h1,h2,h3,.logo{font-family:"Space Grotesk",Inter,sans-serif}
         <div class="cta-row"><a class="btn primary" href="#/projects">See my work →</a><a class="btn" href="#/profile">Developer Profile</a><a class="btn" href="/about/">About me</a><a class="btn" href="/nihongo-path/en/">Nihongo Path Books</a></div>
         <div class="social-row"><a class="btn sm" href="https://www.facebook.com/share/1D2k8nVuJH/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook ↗</a></div>
       </div>
-      <figure class="hero-fig"><div class="hero-card watch-frame" id="watchHero"><img class="watch-img" src="assets/hossain-najmul-cartoon.webp" alt="Cartoon portrait of Hossain Najmul — DevNazu developer"><span class="lid lid-l" aria-hidden="true"></span><span class="lid lid-r" aria-hidden="true"></span></div><figcaption><strong>Hossain Najmul</strong><span>Software Developer • Creator of DevNazu • Japan</span></figcaption></figure>
+      <figure class="hero-fig"><div class="hero-card watch-frame" id="watchHero"><img class="watch-img" src="assets/hossain-najmul-cartoon.webp" alt="Cartoon portrait of Hossain Najmul — DevNazu developer"></div><figcaption><strong>Hossain Najmul</strong><span>Software Developer • Creator of DevNazu • Japan</span></figcaption></figure>
     </section>
     <div class="wrap"><dl class="stats"><div><dt>Based in</dt><dd>Japan</dd></div><div><dt>Main craft</dt><dd>Web + Android</dd></div><div><dt>Exploring</dt><dd>AI + Web3</dd></div><div><dt>Portfolio</dt><dd>2026</dd></div></dl></div>
 
@@ -358,7 +358,7 @@ h1,h2,h3,.logo{font-family:"Space Grotesk",Inter,sans-serif}
     <section class="wrap">
       <div class="profile-hero">
         <div>
-          <div class="profile-card panel watch-frame" id="watchProfile"><img class="watch-img" src="assets/hossain-najmul-cartoon.webp" alt="Cartoon portrait of Hossain Najmul — DevNazu developer"><span class="lid lid-l" aria-hidden="true"></span><span class="lid lid-r" aria-hidden="true"></span></div>
+          <div class="profile-card panel watch-frame" id="watchProfile"><img class="watch-img" src="assets/hossain-najmul-cartoon.webp" alt="Cartoon portrait of Hossain Najmul — DevNazu developer"></div>
           <div class="profile-facts">
             <div class="fact panel"><b>4+</b><span>Projects shipped</span></div>
             <div class="fact panel"><b>Japan</b><span>Based in</span></div>
@@ -624,106 +624,6 @@ h1,h2,h3,.logo{font-family:"Space Grotesk",Inter,sans-serif}
   });
 })();
 </script>
-<script>
-(() => {
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const portraits = [...document.querySelectorAll('.watch-frame')].map(element => ({
-    element, lids: [...element.querySelectorAll('.lid')], x: 0, y: 0, vx: 0, vy: 0,
-  }));
-  let attention = null;
-  let nodAt = -Infinity;
-  let lastScroll = window.scrollY;
-  let scrollDirection = 0;
-  let scrollAt = -Infinity;
-  let nextBlink = performance.now() + 2800;
-  let blinkUntil = 0;
-  let frame = 0;
-  let previous = 0;
-
-  const clamp = value => Math.max(-1, Math.min(1, value));
-  function notice(x, y, duration, priority = false) {
-    const now = performance.now();
-    if (!priority && attention?.priority && now < attention.until) return;
-    attention = {x, y, until: now + duration, priority};
-  }
-  function noticeControl(event) {
-    const control = event.target.closest('a, button, input, select, [role="button"]');
-    if (!control) return;
-    const menu = document.getElementById('site-menu');
-    const openedMenu = control.matches('.menu-toggle[aria-expanded="true"]');
-    const bounds = (openedMenu ? menu : control).getBoundingClientRect();
-    notice(bounds.left + bounds.width / 2, bounds.top + bounds.height / 2, 1400, true);
-  }
-
-  window.addEventListener('pointermove', event => {
-    if (event.pointerType !== 'touch') notice(event.clientX, event.clientY, 900);
-  }, {passive: true});
-  window.addEventListener('pointerdown', event => {
-    notice(event.clientX, event.clientY, 1400, true);
-    nodAt = performance.now();
-  }, {passive: true});
-  document.addEventListener('focusin', noticeControl);
-  document.addEventListener('click', event => {
-    noticeControl(event);
-    if (event.detail === 0) nodAt = performance.now();
-  });
-  window.addEventListener('scroll', () => {
-    const current = window.scrollY;
-    scrollDirection = clamp((current - lastScroll) / 55);
-    scrollAt = performance.now();
-    lastScroll = current;
-  }, {passive: true});
-  window.addEventListener('hashchange', () => {
-    attention = null;
-    scrollAt = -Infinity;
-    nodAt = performance.now();
-  });
-
-  function animate(time) {
-    frame = requestAnimationFrame(animate);
-    const dt = previous ? Math.min((time - previous) / 1000, .025) : 1 / 60;
-    previous = time;
-    if (time >= nextBlink) {
-      blinkUntil = time + 115;
-      nextBlink = time + 2600 + Math.random() * 3100;
-    }
-    const watching = attention && time < attention.until;
-    const scroll = Math.max(0, 1 - (time - scrollAt) / 650) * scrollDirection;
-    const nod = Math.sin(Math.PI * Math.min(1, (time - nodAt) / 480)) * 3.8;
-    for (const portrait of portraits) {
-      const bounds = portrait.element.getBoundingClientRect();
-      if (!bounds.width || bounds.bottom < 0 || bounds.top > innerHeight) continue;
-      const gazeX = watching ? clamp((attention.x - bounds.left - bounds.width / 2) / (innerWidth * .43)) : 0;
-      const gazeY = watching ? clamp((attention.y - bounds.top - bounds.height * .35) / (innerHeight * .45)) : 0;
-      const targetX = -gazeY * 5 + scroll * 3 + nod;
-      const targetY = gazeX * 7 + (!watching ? Math.sin(time / 2300) * .65 : 0);
-      portrait.vx += ((targetX - portrait.x) * 125 - portrait.vx * 19) * dt;
-      portrait.vy += ((targetY - portrait.y) * 125 - portrait.vy * 19) * dt;
-      portrait.x += portrait.vx * dt;
-      portrait.y += portrait.vy * dt;
-      const float = Math.sin(time / 1500) * 1.25;
-      const sway = portrait.y * .16 + scroll * .45;
-      portrait.element.style.transform = `perspective(950px) rotateX(${portrait.x.toFixed(2)}deg) rotateY(${portrait.y.toFixed(2)}deg) rotateZ(${sway.toFixed(2)}deg) translateY(${float.toFixed(2)}px)`;
-      for (const lid of portrait.lids) lid.classList.toggle('closed', time < blinkUntil);
-    }
-  }
-
-  function syncMotion() {
-    cancelAnimationFrame(frame);
-    previous = 0;
-    if (!reduced.matches && !document.hidden) {
-      frame = requestAnimationFrame(animate);
-      return;
-    }
-    for (const portrait of portraits) {
-      portrait.element.style.removeProperty('transform');
-      for (const lid of portrait.lids) lid.classList.remove('closed');
-    }
-  }
-  reduced.addEventListener('change', syncMotion);
-  document.addEventListener('visibilitychange', syncMotion);
-  syncMotion();
-})();
-</script>
+<script type="module" src="/assets/devnazu-avatar.js"></script>
 </body>
 </html>
