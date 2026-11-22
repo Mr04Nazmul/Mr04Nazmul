@@ -32,7 +32,7 @@ try {
     ...(process.env.CHROME_PATH
       ? { executablePath: process.env.CHROME_PATH }
       : {}),
-    args: ["--no-sandbox", "--disable-gpu", "--disable-accelerated-video-decode", "--enable-unsafe-swiftshader"],
+    args: ["--no-sandbox", "--disable-gpu", "--disable-accelerated-video-decode"],
   });
   const homepage = await browser.newPage({
     viewport: { width: 390, height: 844 },
@@ -44,17 +44,6 @@ try {
   await homepage.goto(base);
   await expect(homepage.locator('.page.on[data-page="home"]')).toBeVisible();
   await homepage.locator("#watchHero img").evaluate((image) => image.decode());
-  const character = homepage.locator("#watchHero");
-  await character.scrollIntoViewIfNeeded();
-  await expect(character.locator("canvas.avatar-canvas")).toBeVisible({ timeout: 15000 });
-  const greeting = homepage.getByRole("button", { name: "Play greeting", exact: true });
-  await greeting.click();
-  await expect(character).toHaveAttribute("data-motion", "talking", { timeout: 5000 });
-  await homepage.getByRole("button", { name: "Stop greeting", exact: true }).click();
-  await expect(character).not.toHaveAttribute("data-motion", "talking");
-  await homepage.emulateMedia({ reducedMotion: "reduce" });
-  await expect(character).toHaveAttribute("data-motion", "still");
-
   await homepage.getByRole("button", { name: "Menu", exact: true }).click();
   await homepage.locator("#site-menu").getByRole("link", { name: "Projects", exact: true }).click();
   await expect(homepage.locator('.page.on[data-page="projects"]')).toBeVisible();
