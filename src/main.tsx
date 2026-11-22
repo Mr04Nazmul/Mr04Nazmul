@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
 import { useEffect, useRef } from "react";
-import { MotionConfig, useReducedMotion } from "motion/react";
+import { motion, MotionConfig, useReducedMotion, useSpring } from "motion/react";
 import Lenis from "lenis";
 import {
   ArrowUpRight,
@@ -93,6 +93,99 @@ function SectionLabel({
     </div>
   );
 }
+function ReactivePortrait() {
+  const imageRef = useRef<HTMLImageElement>(null);
+  const reduced = useReducedMotion();
+  const rotateX = useSpring(0, { stiffness: 125, damping: 19 });
+  const rotateY = useSpring(0, { stiffness: 125, damping: 19 });
+  const rotateZ = useSpring(0, { stiffness: 125, damping: 19 });
+
+  useEffect(() => {
+    const image = imageRef.current;
+    if (!image || reduced) {
+      rotateX.jump(0);
+      rotateY.jump(0);
+      rotateZ.jump(0);
+      return;
+    }
+
+    let settle: number | undefined;
+    let holdingUntil = 0;
+    let lastScroll = window.scrollY;
+    const clamp = (value: number) => Math.max(-1, Math.min(1, value));
+    const resetAfter = (delay: number) => {
+      window.clearTimeout(settle);
+      settle = window.setTimeout(() => {
+        rotateX.set(0);
+        rotateY.set(0);
+        rotateZ.set(0);
+      }, delay);
+    };
+    const face = (x: number, y: number, hold: boolean) => {
+      const now = performance.now();
+      if (!hold && now < holdingUntil) return;
+      const bounds = image.getBoundingClientRect();
+      if (bounds.bottom <= 0 || bounds.top >= window.innerHeight) return;
+      const horizontal = clamp((x - bounds.left - bounds.width / 2) / (window.innerWidth * 0.45));
+      const vertical = clamp((y - bounds.top - bounds.height / 2) / (window.innerHeight * 0.45));
+      if (hold) holdingUntil = now + 1100;
+      rotateX.set(-vertical * 7);
+      rotateY.set(horizontal * 10);
+      rotateZ.set(horizontal * 1.5);
+      resetAfter(hold ? 1100 : 500);
+    };
+    const pointerMove = (event: PointerEvent) => {
+      if (event.pointerType === "mouse") face(event.clientX, event.clientY, false);
+    };
+    const tap = (event: PointerEvent) => {
+      if (event.isPrimary && event.button === 0) face(event.clientX, event.clientY, true);
+    };
+    const menu = (event: MouseEvent) => {
+      if (!(event.target instanceof Element)) return;
+      const button = event.target.closest('button[aria-controls="main-nav"]');
+      if (!button) return;
+      const bounds = button.getBoundingClientRect();
+      face(bounds.left + bounds.width / 2, bounds.top + bounds.height / 2, true);
+    };
+    const scroll = () => {
+      const current = window.scrollY;
+      const distance = current - lastScroll;
+      lastScroll = current;
+      const bounds = image.getBoundingClientRect();
+      if (performance.now() < holdingUntil || bounds.bottom <= 0 || bounds.top >= window.innerHeight) return;
+      rotateX.set(clamp(distance / 20) * 5);
+      rotateY.set(0);
+      rotateZ.set(0);
+      resetAfter(220);
+    };
+
+    window.addEventListener("pointermove", pointerMove, { passive: true });
+    window.addEventListener("pointerdown", tap, { passive: true });
+    document.addEventListener("click", menu);
+    window.addEventListener("scroll", scroll, { passive: true });
+    return () => {
+      window.clearTimeout(settle);
+      window.removeEventListener("pointermove", pointerMove);
+      window.removeEventListener("pointerdown", tap);
+      document.removeEventListener("click", menu);
+      window.removeEventListener("scroll", scroll);
+    };
+  }, [reduced, rotateX, rotateY, rotateZ]);
+
+  return (
+    <a href="/about/" aria-label="About Hossain Najmul">
+      <motion.img
+        ref={imageRef}
+        src="/images/hossain-najmul.webp"
+        alt="Hossain Najmul – DevNazu Developer"
+        width="80"
+        height="101"
+        style={{ borderRadius: 12, objectFit: "cover", transformPerspective: 500, rotateX, rotateY, rotateZ }}
+      />
+    </a>
+  );
+}
+
 function Hero() {
   return (
     <section id="home" className="hero container">
@@ -134,7 +227,7 @@ function Hero() {
           </div>
         </Reveal>
         <Reveal className="hero-note" delay={0.2}>
-          <a href="/about/" aria-label="About Hossain Najmul"><img src="/images/hossain-najmul.webp" alt="Hossain Najmul – DevNazu Developer" width="80" height="101" style={{borderRadius:12,objectFit:"cover"}} /></a>
+          <ReactivePortrait />
           <p>
             Web, Android, AI & a little Web3.
             <br />
