@@ -213,13 +213,14 @@ h1,h2,h3,.logo{font-family:"Space Grotesk",Inter,sans-serif}
 .copy-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
 #copyFeedback{font-size:13.5px;font-weight:700;color:#16a34a;opacity:0;transition:.2s} #copyFeedback.show{opacity:1}
 
-footer{margin-top:68px;padding:0 0 36px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:12.5px}
-footer .mono{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-family:"Space Grotesk"}
-.foot-social{display:flex;gap:8px;flex-wrap:wrap}
+.site-footer{margin-top:clamp(40px,8vw,76px);padding-bottom:max(36px,env(safe-area-inset-bottom));color:var(--muted);font-size:12.5px}
+.footer-inner{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;gap:10px 20px;flex-wrap:wrap}
+.site-footer .mono{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-family:"Space Grotesk"}
+@media(max-width:550px){.footer-inner{flex-direction:column;align-items:flex-start}}
 
 /* BACK TO TOP */
-#backTop{position:fixed;right:18px;bottom:18px;z-index:60;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:20px;opacity:.92;pointer-events:auto;transition:.3s}
-#backTop.show{opacity:1;box-shadow:inset 0 1px 0 #ffffff,0 18px 36px rgba(90,60,10,.16)}
+#backTop{position:fixed;right:18px;bottom:18px;z-index:60;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:20px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s}
+#backTop.show{opacity:1;visibility:visible;pointer-events:auto;box-shadow:inset 0 1px 0 #ffffff,0 18px 36px rgba(90,60,10,.16)}
 
 /* SMART BREADCRUMB BAR */
 .crumbbar{border-top:1px solid var(--line);background:rgba(255,255,255,.5)}
@@ -429,8 +430,10 @@ footer .mono{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:
   <!-- CONTACT -->
   <div class="page" data-page="contact"><div class="page-head wrap"><div class="kicker">04 — Contact</div><h2>Let’s build something <span class="grad">useful.</span></h2><p>Have an idea, a question, or just want to follow what I’m building? Start with a hello.</p></div><section class="wrap"><div class="contact-rows panel rv"><a class="crow" href="https://github.com/Mr04Nazmul" target="_blank" rel="noopener"><span class="what">GitHub</span><span><strong>github.com/Mr04Nazmul</strong><small>Every project, prototype and experiment — in the open.</small></span><span class="arr">Open ↗</span></a><a class="crow" href="https://www.facebook.com/share/1D2k8nVuJH/?mibextid=wwXIfr" target="_blank" rel="noopener"><span class="what">Facebook</span><span><strong>Hossain Najmul on Facebook</strong><small>Follow along — new builds, videos and everyday updates.</small></span><span class="arr">Open ↗</span></a><a class="crow" href="https://devnazu.jp" target="_blank" rel="noopener"><span class="what">Website</span><span><strong>devnazu.jp</strong><small>The home of DevNazu — my work and writing from Japan.</small></span><span class="arr">Visit ↗</span></a></div><div class="hello rv"><div class="kicker">Say hello</div><h2>Start with a <span class="serif-accent grad">hello.</span></h2><p>Follow along on GitHub or Facebook to see each build as it ships, or drop by devnazu.jp — new ideas land there first.</p><div class="cta-row"><a class="btn" href="https://github.com/Mr04Nazmul" target="_blank" rel="noopener">Follow on GitHub ↗</a><a class="btn" href="https://www.facebook.com/share/1D2k8nVuJH/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook ↗</a><a class="btn" href="https://devnazu.jp" target="_blank" rel="noopener">Visit devnazu.jp ↗</a></div><div class="copy-row"><button class="btn sm" type="button" id="copyGithub">⧉ Copy GitHub link</button><button class="btn sm" type="button" id="copySite">⧉ Copy devnazu.jp</button><span id="copyFeedback" role="status"></span></div><p class="fine">Hossain Najmul • DevNazu • Independent Developer in Japan • Web, Android, AI &amp; Web3</p></div></section></div>
 
-  <footer class="wrap"><span>© 2026 DevNazu — Hossain Najmul. Built with curiosity.</span><span class="foot-social"><a class="btn sm" href="https://github.com/Mr04Nazmul" target="_blank" rel="noopener">GitHub ↗</a><a class="btn sm" href="https://www.facebook.com/share/1D2k8nVuJH/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook ↗</a><a class="btn sm" href="https://devnazu.jp" target="_blank" rel="noopener">devnazu.jp ↗</a></span><span class="mono">Design · Build · Keep learning</span></footer>
-</main>
+  </main>
+<footer class="wrap site-footer">
+  <div class="footer-inner"><span>© 2026 DevNazu · Hossain Najmul</span><span class="mono">Design · Build · Keep learning</span></div>
+</footer>
 
 <button id="backTop" class="btn" aria-label="Back to top" title="Back to top">↑</button>
 
@@ -446,8 +449,17 @@ footer .mono{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:
   function updateProgress(){if(!bar||!back)return;var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(window.scrollY/max):0;bar.style.transform="scaleX("+p+")";back.classList.toggle("show",window.scrollY>520);back.tabIndex=window.scrollY>520?0:-1}
   window.addEventListener("scroll",updateProgress,{passive:true});
 
-  function route(){var h=(location.hash||"").replace(/^#\/?/,"").split(/[?\/]/)[0].toLowerCase();if(Object.hasOwn(LEGACY,h))h=LEGACY[h];if(!Object.hasOwn(PAGES,h))h="home";var pages=document.querySelectorAll(".page");for(var i=0;i<pages.length;i++)pages[i].classList.toggle("on",pages[i].getAttribute("data-page")===h);var navKey=NAVMAP[h]||h;var links=document.querySelectorAll("[data-nav]");for(var j=0;j<links.length;j++){var on=links[j].getAttribute("data-nav")===navKey;links[j].classList.toggle("active",on);if(on)links[j].setAttribute("aria-current","page");else links[j].removeAttribute("aria-current")}document.title=TITLES[h];var ch=document.getElementById("crumbHere"),cp=document.getElementById("crumbParent"),cc=document.getElementById("crumbChip");if(ch)ch.textContent=CRUMB[h]||"Home";if(cp)cp.hidden=!NAVMAP[h];if(cc)cc.textContent=(CRUMB[h]||"Home")+" — DevNazu";window.scrollTo(0,0);updateProgress()}
-  window.addEventListener("hashchange",route);route();updateProgress();
+  function route(){var h=(location.hash||"").replace(/^#\/?/,"").split(/[?\/]/)[0].toLowerCase();if(Object.hasOwn(LEGACY,h))h=LEGACY[h];if(!Object.hasOwn(PAGES,h))h="home";var pages=document.querySelectorAll(".page");for(var i=0;i<pages.length;i++)pages[i].classList.toggle("on",pages[i].getAttribute("data-page")===h);var navKey=NAVMAP[h]||h;var links=document.querySelectorAll("[data-nav]");for(var j=0;j<links.length;j++){var on=links[j].getAttribute("data-nav")===navKey;links[j].classList.toggle("active",on);if(on)links[j].setAttribute("aria-current","page");else links[j].removeAttribute("aria-current")}document.title=TITLES[h];var ch=document.getElementById("crumbHere"),cp=document.getElementById("crumbParent"),cc=document.getElementById("crumbChip");if(ch)ch.textContent=CRUMB[h]||"Home";if(cp)cp.hidden=!NAVMAP[h];if(cc)cc.textContent=(CRUMB[h]||"Home")+" — DevNazu";window.scrollTo({top:0,behavior:"instant"});updateProgress()}
+  window.addEventListener("hashchange", function () {
+    route();
+    var heading = document.querySelector(".page.on h1, .page.on h2");
+    if (heading) {
+      heading.setAttribute("tabindex", "-1");
+      heading.focus({preventScroll:true});
+    }
+  });
+  window.addEventListener("resize", updateProgress, {passive:true});
+  route();
 
   var menuButton=document.querySelector(".menu-toggle");
   var menu=document.getElementById("site-menu");
