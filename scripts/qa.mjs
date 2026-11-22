@@ -250,7 +250,9 @@ try {
     assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://devnazu.jp/about/');
     const schema = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
     assert.equal(schema['@graph'].find(x => x['@type'] === 'ProfilePage').mainEntity['@id'], 'https://devnazu.jp/#person');
-    assert.equal(await page.locator('main img').count(), 0, 'About page has no old portrait');
+    assert.equal(await page.locator('main img').count(), 1, 'About page uses one portrait');
+    assert.equal(await page.locator('main img').getAttribute('src'), '/assets/hossain-najmul-cartoon.webp');
+    await page.locator('main img').evaluate(img => img.decode());
     assert.equal(await page.getByRole('link', {name:'Google Play', exact:true}).getAttribute('href'), 'https://play.google.com/store/apps/details?id=online.devnazu.books');
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     const axe = await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();

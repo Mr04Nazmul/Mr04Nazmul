@@ -40,6 +40,9 @@
       a[aria-current],.primary{background:#ffdab0;color:#4d2409;border-color:#ca874a}
       main{padding-block:clamp(30px,7vw,75px)}
       .panel{background:#fffdf9c9;border:1px solid #e7d5c1;border-radius:24px;box-shadow:0 15px 45px #52300f12}
+      .about-portrait{display:block;width:100%;height:auto;border-radius:18px}
+      .intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,220px);gap:clamp(20px,4vw,44px);align-items:center}
+      @media(max-width:650px){.intro-grid{grid-template-columns:1fr}.about-portrait{width:min(100%,200px)}}
       .intro{padding:clamp(22px,6vw,58px)}
       .eyebrow{letter-spacing:.13em;text-transform:uppercase;font-size:.8rem;font-weight:750;color:#8a410f}
       h1,h2,h3,p{margin:0 0 .75em}
@@ -63,12 +66,16 @@
     </div></header>
     <main id="main" class="wrap">
       <section class="intro panel" aria-labelledby="name">
+        <div class="intro-grid"><div>
         <p class="eyebrow">Developer profile</p>
         <h1 id="name">Hossain Najmul</h1>
         <p class="lead">Software Developer &amp; Creator of DevNazu</p>
         <p>I build Android apps and web tools, including Japanese learning software with Bengali support.</p>
         <p>My work spans accessible web interfaces, authentication, data integration and tools for Japanese language learners.</p>
         <div class="actions"><a class="button primary" href="/#/projects">Explore my work</a><a class="button" href="/#/contact">Contact</a></div>
+        </div>
+        <img class="about-portrait" src="/assets/hossain-najmul-cartoon.webp" alt="Illustrated portrait of Hossain Najmul" width="809" height="1040">
+        </div>
       </section>
       <section aria-labelledby="projects">
         <h2 id="projects">Apps and projects</h2>
