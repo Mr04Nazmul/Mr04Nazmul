@@ -246,7 +246,7 @@ try {
     const context = await browser.newContext({ viewport: { width, height: 900 } });
     const page = await context.newPage();
     await page.goto(base + '/about/', {waitUntil:'networkidle'});
-    assert.equal(await page.locator('h1').innerText(), 'Hossain Najmul');
+    assert.equal(await page.locator('h1').innerText(), 'Who is Hossain Najmul?');
     assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://devnazu.jp/about/');
     const schema = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
     assert.equal(schema['@graph'].find(x => x['@type'] === 'ProfilePage').mainEntity['@id'], 'https://devnazu.jp/#person');
