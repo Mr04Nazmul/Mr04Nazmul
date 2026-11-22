@@ -34,6 +34,25 @@ try {
       : {}),
     args: ["--no-sandbox", "--disable-gpu", "--disable-accelerated-video-decode"],
   });
+  const homepage = await browser.newPage({
+    viewport: { width: 390, height: 844 },
+    isMobile: true,
+    hasTouch: true,
+  });
+  const homepageErrors = [];
+  homepage.on("pageerror", (error) => homepageErrors.push(error.message));
+  await homepage.goto(base);
+  await expect(homepage.locator('.page.on[data-page="home"]')).toBeVisible();
+  await homepage.locator("#watchHero img").evaluate((image) => image.decode());
+  await homepage.getByRole("button", { name: "Menu", exact: true }).click();
+  await homepage.locator("#site-menu").getByRole("link", { name: "Projects", exact: true }).click();
+  await expect(homepage.locator('.page.on[data-page="projects"]')).toBeVisible();
+  await homepage.locator("#projSearch").fill("nihongo");
+  await expect(homepage.locator("#resultCount")).toHaveText("1 project");
+  await homepage.goto(base + "/#/project-nihongo-path");
+  await expect(homepage.getByRole("link", { name: "Google Play", exact: true })).toBeVisible();
+  assert.deepEqual(homepageErrors, [], "Portfolio homepage errors");
+  await homepage.close();
   const reports = [];
   const layouts = [
     { name: "desktop", width: 1440, height: 1000 },
@@ -78,7 +97,7 @@ try {
       if (r.status() >= 400 && r.url().startsWith(base))
         failed.push({ url: r.url(), status: r.status() });
     });
-    await page.goto(base, { waitUntil: "networkidle", timeout: 60000 });
+    await page.goto(base + "/classic/", { waitUntil: "networkidle", timeout: 60000 });
     await expect.poll(() => page.locator("video").evaluate(v => v.readyState), {timeout:20000}).toBeGreaterThanOrEqual(2);
     await page.waitForTimeout(1000);
     assert.equal(await page.locator("h1").count(), 1);
