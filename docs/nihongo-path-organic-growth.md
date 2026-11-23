@@ -2,7 +2,7 @@
 
 ## Baseline
 - Google Play production: 1.20.0, package online.devnazu.books. Last observed developer-console snapshot: 702 device acquisitions, 394 monthly active devices (last 28 days); not a guaranteed current count. Public store displayed 500+ downloads.
-- Existing Bengali, English and Japanese landing pages, canonicals, hreflang, schema, robots and sitemap reviewed. Brand search returned AppBrain and Chrome-Stats; official site was not found in the specific web-search snapshot. Search Console indexing and actual queries must be verified before diagnosing rank.
+- Existing Bengali, English and Japanese landing pages, canonicals, hreflang, schema, robots and sitemap reviewed. Brand search returned AppBrain and Chrome-Stats; official site was not found in the specific web-search snapshot. Search Console verified directly: Google Web Search (3-month selection, chart data Nov 16–21): 7 clicks, 24 impressions, 29.2% CTR, average position 3.5 across the property; query table no data, so this is not a specific keyword rank. Index coverage: 4 indexed, 1 crawled but not currently indexed (/about/); report last updated Nov 16. 5 HTTPS pages, no non-HTTPS pages. Core Web Vitals insufficient data. The priority is reach and high-value content, then re-evaluate after deployment.
 - Known directory listings: Uptodown, AppBrain, Chrome-Stats, AppsXray, TopRankedApps, FindUpApp, Get Indie Apps. Aptoide processing and Softonic under review, AppsApk submitted. Do not falsely claim all are live.
 - Production app and Supabase not modified. This branch adds only original website guides and review materials. No fake reviews, bot installs, purchased links or bulk generated doorway pages.
 
