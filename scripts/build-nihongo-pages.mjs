@@ -23,9 +23,9 @@ const alternate = page => [...locales, 'x-default'].map((lang, i) =>
   '<link rel="alternate" hreflang="' + lang + '" href="' + site + url(page, i === 3 ? 1 : i) + '">').join('\n');
 const compact = value => JSON.stringify(value).replaceAll('<', '\\u003c');
 const scope = [
-  'NPALE-এর ১৪টি উপাদানের এই নথি Android ডেভেলপমেন্ট সোর্সের পর্যালোচনার ওপর ভিত্তি করে। Google Play-এ 1.20.3 তালিকাভুক্ত। নির্দিষ্ট Build 37 ও পর্যালোচিত সোর্সের সঙ্গে তার মিল নিশ্চিত হয়নি।',
-  'This audit covers 14 components in the NPALE Android development source. Google Play lists version 1.20.3. The exact Build 37 and its correspondence to the audited source remain unverified.',
-  'Android開発ソースに含まれるNPALEの14項目を確認しました。Google Playでは1.20.3が掲載されています。Build 37の配信と調査対象ソースとの一致は確認中です。',
+  'NPALE-এর ১৪টি উপাদানের এই নথি Android ডেভেলপমেন্ট সোর্সের পর্যালোচনার ওপর ভিত্তি করে। APK ও AAB ম্যানিফেস্টে 1.20.3 (Build 37) যাচাই করা হয়েছে। দুই ফাইলের অ্যাডাপ্টিভ রিডার ও রিমাইন্ডার ওয়ার্কার Build 37-এর বিল্ড সোর্সের সঙ্গে মেলে। Google Play-এ 1.20.3 তালিকাভুক্ত। Play-এর production version code আলাদাভাবে যাচাই করা বাকি।',
+  'This audit covers 14 components in the NPALE Android development source. The APK and AAB manifests confirm 1.20.3 (Build 37). Their adaptive reader and reminder worker match the Build 37 build source files. Google Play lists 1.20.3. Its production version code still needs separate verification.',
+  'Android開発ソースに含まれるNPALEの14項目を確認しました。APKとAABのマニフェストで1.20.3（Build 37）を確認しました。両方の適応学習リーダーと通知ワーカーはBuild 37のビルド元ファイルと一致します。Google Playでは1.20.3が掲載されており、本番配信のバージョンコードは確認中です。',
 ];
 const features = [
   ['JLPT N5–N1 অনুসারে শব্দভাণ্ডার, ব্যাকরণ ও কাঞ্জি সাজানো। বাংলা অর্থ ও ব্যাকরণের ব্যাখ্যা, উচ্চারণ, স্ট্রোক অ্যানিমেশন ও লেখার বোর্ড আছে।', 'বিনামূল্যের প্রিভিউ আছে। বাড়তি পড়ার সময় পেতে রিওয়ার্ডেড বিজ্ঞাপন ব্যবহার হয়। পুরো অ্যাক্সেসের জন্য অ্যাকাউন্ট বা ইন্টারনেট লাগতে পারে।', 'সোর্স ব্রাঞ্চে স্থানীয় স্টাডি হিস্ট্রি, গুগল সাইন-ইনের পথ, টেমপ্লেটভিত্তিক লেখার ফিডব্যাক এবং লিখিত মক পরীক্ষা দেখা যায়। Google Play-এর 1.20.3 নোটে FSRS Smart Review, Daily Smart Study, লেখার ফিডব্যাক এবং ২৫টি সময়-নির্ধারিত লিখিত মক পরীক্ষার উল্লেখ আছে। সব অফলাইন অপারেশন যাচাই হয়নি।'],
