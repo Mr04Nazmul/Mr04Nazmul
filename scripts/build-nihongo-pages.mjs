@@ -22,6 +22,11 @@ const languages = page => locales.map((lang, i) => '<a lang="' + lang + '" hrefl
 const alternate = page => [...locales, 'x-default'].map((lang, i) =>
   '<link rel="alternate" hreflang="' + lang + '" href="' + site + url(page, i === 3 ? 1 : i) + '">').join('\n');
 const compact = value => JSON.stringify(value).replaceAll('<', '\\u003c');
+const engineSummary = [
+  'Nihongo Path Books-এর স্মার্ট রিভিউতে FSRS আগের উত্তর থেকে পরের রিভিউয়ের সময় ঠিক করে। Daily Smart Study উত্তর ও পাঠের পূর্বশর্ত দেখে পরের অনুশীলন বেছে নেয়। নিচে ১৪টি উপাদানের কাজ ও চালু হওয়ার শর্ত দেখুন।',
+  'Nihongo Path Books uses FSRS to schedule Smart Review from past answers. Daily Smart Study uses answer history and lesson prerequisites to select practice. See how the 14 engine components work and when they become active.',
+  'Nihongo Path BooksのSmart Reviewは過去の回答をもとにFSRSで復習日程を決めます。Daily Smart Studyは回答履歴と前提知識に基づいて練習問題を選びます。以下で14項目の仕組みと適用条件を紹介します。',
+];
 const scope = [
   'NPALE-এর ১৪টি উপাদানের এই নথি Android ডেভেলপমেন্ট সোর্সের পর্যালোচনার ওপর ভিত্তি করে। APK ও AAB ম্যানিফেস্টে 1.20.3 (Build 37) যাচাই করা হয়েছে। দুই ফাইলের অ্যাডাপ্টিভ রিডার ও রিমাইন্ডার ওয়ার্কার Build 37-এর বিল্ড সোর্সের সঙ্গে মেলে। Google Play-এ 1.20.3 তালিকাভুক্ত। Play-এর production version code আলাদাভাবে যাচাই করা বাকি।',
   'This audit covers 14 components in the NPALE Android development source. The APK and AAB manifests confirm 1.20.3 (Build 37). Their adaptive reader and reminder worker match the Build 37 build source files. Google Play lists 1.20.3. Its production version code still needs separate verification.',
@@ -69,7 +74,7 @@ for (const [language, lang] of locales.entries()) {
     const path = url(page, language);
     const canonical = site + path;
     const title = titles[language][page];
-    const description = page === 2 ? features[language][0] : page === 5 ? questions[language].join(' ') : scope[language];
+    const description = page === 1 ? engineSummary[language] : page === 2 ? features[language][0] : page === 5 ? questions[language].join(' ') : scope[language];
     const faq = questions[language].map((name, i) => ({
       '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text: answer(language)[i] },
     }));
@@ -79,7 +84,7 @@ for (const [language, lang] of locales.entries()) {
     ] }, org, website, app];
     if (page === 5) data.push({ '@type': 'FAQPage', '@id': canonical, mainEntity: faq, inLanguage: lang });
     const sections = {
-      1: paragraphs([scope[language]]) + '<ol>' + algorithms.map(row =>
+      1: paragraphs([engineSummary[language], scope[language]]) + '<ol>' + algorithms.map(row =>
         '<li><h2>' + row[0] + '</h2><p>' + row[language + 1] + '</p></li>').join('\n') + '</ol>',
       2: paragraphs(features[language]),
       3: paragraphs([scope[language], ...tech[language]]) + '<p>' + links(language, [1, 4]) + '</p>',
