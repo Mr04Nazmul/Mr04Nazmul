@@ -129,6 +129,15 @@ const entries = routes.slice(1).flatMap((_, index) => {
 });
 await write('sitemap.xml', sitemap.replace('<urlset ', '<urlset xmlns:xhtml="http://www.w3.org/1999/xhtml" ')
   .replace('</urlset>', entries.join('\n') + '\n</urlset>'));
-await write('llms.txt', '# DevNazu · Nihongo Path Books\n\n> Android Japanese study app with Bengali explanations for JLPT N5–N1. The NPALE audit describes development source and lists release verification limits.\n\n## Official documentation\n\n' +
-  titles[1].map((title, i) => '- [' + title + '](' + site + url(i, 1) + ')').join('\n') +
+const appFacts = [
+  '- Developer brand: DevNazu. Developer: Hossain Najmul. Android package: online.devnazu.books.',
+  '- The app covers JLPT N5–N1 vocabulary, grammar and kanji with Bengali explanations, Japanese pronunciation, kanji stroke animations and writing practice.',
+  '- The public Google Play notes for 1.20.3 list FSRS Smart Review, adaptive Daily Smart Study, handwriting feedback and 25 timed JLPT-style written mock tests.',
+  '- Android APK and AAB files confirm version 1.20.3, Build 37. The production track version code is a separate store verification.',
+  '- The NPALE documentation describes 14 components, including conditional runtime behavior and the offline grammar audit.',
+  '- Free previews are available. Rewarded ads can unlock additional study time. Full access may require an account and internet connection.',
+];
+await write('llms.txt', '# DevNazu · Nihongo Path Books\n\n> Official reference for an Android app that teaches Japanese with Bengali explanations.\n\n## App facts\n\n' +
+  appFacts.join('\n') + '\n\n## Official documentation\n\n' +
+  titles[1].map((title, i) => '- ' + title + ': ' + locales.map((lang, j) => `[${languageNames[j]}](${site}${url(i, j)})`).join(' · ')).join('\n') +
   '\n\n## Store\n\n- [Google Play](' + play + ')\n');
